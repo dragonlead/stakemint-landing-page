@@ -244,7 +244,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex justify-center graphLG px-7">
+        <div className="flex justify-center graphLG px-7 pb-32">
           <div className="flex flex-col-reverse lg:flex-row justify-between items-center gap-7 lg:gap-36 lg:contentDivLG lg:pb-20 pb-10">
             <div>
               <p className="lg:w-[560px] leading-[45px] lg:leading-[50px] text-[2.5rem] lg:text-[3rem] lg:mt-[52px] font-commonsDemiBold">
