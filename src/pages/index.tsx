@@ -37,7 +37,7 @@ export default function Home() {
       <main className="bg-white text-primary">
         {/* <p className={`${inter.className} text-4xl`}>hello world!</p> */}
         <div className="fixed z-50 flex justify-center w-full bg-white drop-shadow-md">
-          <div className={`flex justify-between py-[18px] w-[${max_width}] `}>
+          <div className="flex justify-between py-[18px] contentDivLG">
             <div className="flex items-center">
               <Image
                 src={LOGO}
@@ -64,7 +64,7 @@ export default function Home() {
         </div>
 
         <div className="flex justify-center">
-          <div className={`flex justify-center gap-16 pt-56 w-[${max_width}]`}>
+          <div className="flex justify-center gap-16 pt-56 contentDivLG">
             <div>
               <p className="w-[560px] leading-[90px] text-[4.8rem] mt-[52px] font-commonsDemiBold">
                 Earn crypto your way with CryptoDawg Earn
@@ -84,9 +84,7 @@ export default function Home() {
         </div>
 
         <div className="flex justify-center">
-          <div
-            className={`flex justify-between mt-[215px] mb-[58px] w-[${max_width}]`}
-          >
+          <div className="flex justify-between mt-[215px] mb-[58px] contentDivLG">
             <div className="flex flex-col items-center">
               <Image
                 src={DAILY_YIELD}
@@ -121,9 +119,7 @@ export default function Home() {
         </div>
 
         <div className="flex justify-center">
-          <div
-            className={`flex w-[${max_width}] flex-col items-center pt-[58px] px-[84px] mb-[93px]`}
-          >
+          <div className="flex contentDivLG flex-col items-center pt-[58px] px-[84px] mb-[93px]">
             <p className="font-commonsDemiBold w-[660px] text-[45px] text-center">
               The CryptoDawg app makes it easy for you to earn a yield every
               day.
@@ -135,9 +131,7 @@ export default function Home() {
         </div>
 
         <div className="flex justify-center">
-          <div
-            className={`flex justify-center items-center gap-16 mb-[116px] w-[${max_width}]`}
-          >
+          <div className="flex justify-center items-center gap-16 mb-[116px] contentDivLG">
             <div>
               <p className="w-[560px] leading-[50px] text-[3rem] mt-[52px] font-commonsDemiBold">
                 The simple way to manage your risk appetite
@@ -155,9 +149,7 @@ export default function Home() {
         </div>
 
         <div className="flex justify-center">
-          <div
-            className={`flex justify-center items-center gap-16 mb-[116px] w-[${max_width}]`}
-          >
+          <div className="flex justify-center items-center gap-16 mb-[116px] contentDivLG">
             <div>
               <Image src={APY} alt="APY" className="w-[650px]" />
             </div>
@@ -175,9 +167,7 @@ export default function Home() {
         </div>
 
         <div className="flex justify-center graphLG">
-          <div
-            className={`flex justify-between items-center gap-36 w-[${max_width}] pb-20`}
-          >
+          <div className="flex justify-between items-center gap-36 contentDivLG pb-20">
             <div>
               <p className="w-[560px] leading-[50px] text-[3rem] mt-[52px] font-commonsDemiBold">
                 +2,143% APR.
