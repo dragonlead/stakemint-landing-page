@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import YouTube from "react-youtube";
+import { Squash as Hamburger } from "hamburger-react";
 
 import LOGO from "../assets/swissborg-logo.png";
 import EARN_HERO from "../assets/earn-page-hero.png";
@@ -10,8 +11,14 @@ import REFUND from "../assets/refund.svg";
 import MOOD from "../assets/earnpage_cyborgmood.png";
 import APY from "../assets/earnpage_apy.png";
 import MOBILE from "../assets/mobilephone.png";
+import { useState } from "react";
 
 export default function Home() {
+  const [nav, setNav] = useState(false);
+  const handleNav = () => {
+    setNav(!nav);
+  };
+
   const opts = {
     height: "423px",
     width: "750px",
@@ -37,7 +44,7 @@ export default function Home() {
       <main className="bg-white text-primary">
         {/* <p className={`${inter.className} text-4xl`}>hello world!</p> */}
         <div className="fixed z-50 flex justify-center w-full bg-white drop-shadow-md px-7">
-          <div className="flex justify-between lg:py-[18px] contentDivLG">
+          <div className="flex justify-between items-center py-1 lg:py-[18px] contentDivLG">
             <div className="flex items-center">
               <Image
                 src={LOGO}
@@ -47,6 +54,15 @@ export default function Home() {
               <span className="text-[2.2rem] lg:text-[2.5rem] leading-[46px] font-commonsDemiBold mt-[10px]">
                 CryptoDawg
               </span>
+            </div>
+
+            <div className="block lg:hidden -mr-3">
+              <Hamburger
+                toggled={nav}
+                toggle={handleNav}
+                color="gray"
+                size={24}
+              />
             </div>
 
             <div className="hidden lg:flex items-center justify-center">
@@ -59,6 +75,49 @@ export default function Home() {
               <button className="rounded-md bg-green-400 px-4 pt-[6px] pb-1 font-commonsDemiBold ml-8">
                 Sign In/Sign Up
               </button>
+            </div>
+
+            <div
+              className={
+                nav
+                  ? "fixed left-0 top-16 w-full h-fit z-50 bg-white ease-in-out duration-500"
+                  : "fixed left-0 top-[-500%] w-full h-fit z-50 ease-in-out duration-500"
+              }
+            >
+              <ul className="p-4 text-primary font-commonsDemiBold">
+                <li
+                  className="p-4 active:bg-gray-100 hover:cursor-pointer"
+                  onClick={handleNav}
+                >
+                  Home
+                </li>
+                <li
+                  className="p-4 active:bg-gray-100 hover:cursor-pointer"
+                  onClick={handleNav}
+                >
+                  Core
+                </li>
+                <li
+                  className="p-4 active:bg-gray-100 hover:cursor-pointer"
+                  onClick={handleNav}
+                >
+                  Wallet
+                </li>
+                <li
+                  className="p-4 active:bg-gray-100 hover:cursor-pointer"
+                  onClick={handleNav}
+                >
+                  Careers
+                </li>
+                <li
+                  className="p-4 active:bg-gray-100 hover:cursor-pointer"
+                  onClick={handleNav}
+                >
+                  <button className="rounded-md bg-green-400 px-4 pt-[6px] pb-1 font-commonsDemiBold">
+                    Sign In/Sign Up
+                  </button>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
