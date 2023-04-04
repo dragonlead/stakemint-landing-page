@@ -11,3 +11,10 @@
   font-family: "Commons-DemiBold";
   src: url("../fonts/tt-commons-demibold.ttf");
 }
+
+.graphLG {
+  background-image: url("../assets/bg1.png");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: 100%, auto;
+}

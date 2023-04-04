@@ -9,6 +9,7 @@ import DAILY_YIELD from "../assets/daily_yield.svg";
 import REFUND from "../assets/refund.svg";
 import MOOD from "../assets/earnpage_cyborgmood.png";
 import APY from "../assets/earnpage_apy.png";
+import MOBILE from "../assets/mobilephone.png";
 
 export default function Home() {
   const opts = {
@@ -18,6 +19,8 @@ export default function Home() {
       autoplay: 1,
     },
   };
+
+  const max_width = "1180px";
 
   function _onReady(event: any) {
     event.target.pauseVideo();
@@ -33,119 +36,167 @@ export default function Home() {
       </Head>
       <main className="bg-white text-primary">
         {/* <p className={`${inter.className} text-4xl`}>hello world!</p> */}
-        <div className="flex justify-between px-[90px] py-[18px] fixed w-full bg-white  drop-shadow-md">
-          <div className="flex items-center">
-            <Image
-              src={LOGO}
-              alt="LOGO"
-              className="w-[35px] h-[40px] mr-[10px]"
-            />
-            <span className="text-[2.5rem] leading-[46px] font-commonsDemiBold mt-[10px]">
-              CryptoDawg
-            </span>
-          </div>
-          <div className="flex items-center justify-center">
-            <ul className="flex gap-8 font-commonsDemiBold text-lg">
-              <li className="hover:cursor-pointer">Home</li>
-              <li className="hover:cursor-pointer">Core</li>
-              <li className="hover:cursor-pointer">Wallet</li>
-              <li className="hover:cursor-pointer">Careers</li>
-            </ul>
-            <button className="rounded-md bg-green-400 px-4 pt-[6px] pb-1 font-commonsDemiBold ml-8">
-              Sign In/Sign Up
-            </button>
+        <div className="fixed z-50 flex justify-center w-full bg-white drop-shadow-md">
+          <div className={`flex justify-between py-[18px] w-[${max_width}] `}>
+            <div className="flex items-center">
+              <Image
+                src={LOGO}
+                alt="LOGO"
+                className="w-[35px] h-[40px] mr-[10px]"
+              />
+              <span className="text-[2.5rem] leading-[46px] font-commonsDemiBold mt-[10px]">
+                CryptoDawg
+              </span>
+            </div>
+
+            <div className="flex items-center justify-center">
+              <ul className="flex gap-8 text-lg font-commonsDemiBold">
+                <li className="hover:cursor-pointer">Home</li>
+                <li className="hover:cursor-pointer">Core</li>
+                <li className="hover:cursor-pointer">Wallet</li>
+                <li className="hover:cursor-pointer">Careers</li>
+              </ul>
+              <button className="rounded-md bg-green-400 px-4 pt-[6px] pb-1 font-commonsDemiBold ml-8">
+                Sign In/Sign Up
+              </button>
+            </div>
           </div>
         </div>
 
-        <div className="flex justify-center gap-16 pt-56 px-[84px]">
-          <div>
-            <p className="w-[560px] leading-[90px] text-[4.8rem] mt-[52px] font-commonsDemiBold">
-              Earn crypto your way with CryptoDawg Earn
-            </p>
-            <p className="w-[560px] font-commonsRegular text-[1.4rem] mt-3 leading-7">
-              Investors aren’t one-size-fits-all, so why is your yield? Generate
-              the right yield for you with CryptoDawg Earn.
-            </p>
-            <button className="bg-[#01c38d] rounded-md font-commonsDemiBold text-white py-1 px-2 text-xl mt-[70px]">
-              Notify Me
-            </button>
-          </div>
-          <div>
-            <Image src={EARN_HERO} alt="EARN_HERO" className="w-[650px]" />
-          </div>
-        </div>
-
-        <div className="flex justify-center mt-[215px] mb-[58px] px-[84px]">
-          <div className="flex flex-col items-center">
-            <Image
-              src={DAILY_YIELD}
-              alt="DAILY_YIELD"
-              className="w-[80px] h-[80px] my-5 mx-[156px]"
-            />
-            <p className="font-commonsDemiBold text-3xl mb-5">
-              Daily Yield Payouts
-            </p>
-          </div>
-          <div className="flex flex-col items-center">
-            <Image
-              src={COMPOUND_YIELD}
-              alt="COMPOUND_YIELD"
-              className="w-[80px] h-[80px] my-5 mx-[156px]"
-            />
-            <p className="font-commonsDemiBold text-3xl mb-5">
-              Compounded Yield
-            </p>
-          </div>
-          <div className="flex flex-col items-center">
-            <Image
-              src={REFUND}
-              alt="REFUND"
-              className="w-[80px] h-[80px] my-5 mx-[156px]"
-            />
-            <p className="font-commonsDemiBold text-3xl mb-5">
-              24 Hour Withdrawal
-            </p>
+        <div className="flex justify-center">
+          <div className={`flex justify-center gap-16 pt-56 w-[${max_width}]`}>
+            <div>
+              <p className="w-[560px] leading-[90px] text-[4.8rem] mt-[52px] font-commonsDemiBold">
+                Earn crypto your way with CryptoDawg Earn
+              </p>
+              <p className="w-[560px] font-commonsRegular text-[1.4rem] mt-3 leading-7">
+                Investors aren’t one-size-fits-all, so why is your yield?
+                Generate the right yield for you with CryptoDawg Earn.
+              </p>
+              <button className="bg-[#01c38d] rounded-md font-commonsDemiBold text-white py-1 px-2 text-xl mt-[70px]">
+                Notify Me
+              </button>
+            </div>
+            <div>
+              <Image src={EARN_HERO} alt="EARN_HERO" className="w-[650px]" />
+            </div>
           </div>
         </div>
 
-        <div className="flex w-full flex-col items-center pt-[58px] px-[84px] mb-[93px]">
-          <p className="font-commonsDemiBold w-[660px] text-[45px] text-center">
-            The CryptoDawg app makes it easy for you to earn a yield every day.
-          </p>
-          <div className="rounded-xl overflow-clip mt-[44px]">
-            <YouTube videoId="AJZN2kb1aV4" opts={opts} onReady={_onReady} />
+        <div className="flex justify-center">
+          <div
+            className={`flex justify-between mt-[215px] mb-[58px] w-[${max_width}]`}
+          >
+            <div className="flex flex-col items-center">
+              <Image
+                src={DAILY_YIELD}
+                alt="DAILY_YIELD"
+                className="w-[80px] h-[80px] my-5 mx-[156px]"
+              />
+              <p className="mb-5 text-3xl font-commonsDemiBold">
+                Daily Yield Payouts
+              </p>
+            </div>
+            <div className="flex flex-col items-center">
+              <Image
+                src={COMPOUND_YIELD}
+                alt="COMPOUND_YIELD"
+                className="w-[80px] h-[80px] my-5 mx-[156px]"
+              />
+              <p className="mb-5 text-3xl font-commonsDemiBold">
+                Compounded Yield
+              </p>
+            </div>
+            <div className="flex flex-col items-center">
+              <Image
+                src={REFUND}
+                alt="REFUND"
+                className="w-[80px] h-[80px] my-5 mx-[156px]"
+              />
+              <p className="mb-5 text-3xl font-commonsDemiBold">
+                24 Hour Withdrawal
+              </p>
+            </div>
           </div>
         </div>
 
-        <div className="flex justify-center items-center gap-16 pt-56 px-[84px] mb-[116px]">
-          <div>
-            <p className="w-[560px] leading-[50px] text-[3rem] mt-[52px] font-commonsDemiBold">
-              The simple way to manage your risk appetite
+        <div className="flex justify-center">
+          <div
+            className={`flex w-[${max_width}] flex-col items-center pt-[58px] px-[84px] mb-[93px]`}
+          >
+            <p className="font-commonsDemiBold w-[660px] text-[45px] text-center">
+              The CryptoDawg app makes it easy for you to earn a yield every
+              day.
             </p>
-            <p className="w-[560px] font-commonsRegular text-[1.4rem] mt-3 leading-7">
-              Every strategy for every crypto asset has a Cyborg mood (Core,
-              Adventurous, Brave) that grades its risks so you can make smart
-              investing decisions.
-            </p>
-          </div>
-          <div>
-            <Image src={MOOD} alt="MOOD" className="w-[650px]" />
+            <div className="rounded-xl overflow-clip mt-[44px]">
+              <YouTube videoId="AJZN2kb1aV4" opts={opts} onReady={_onReady} />
+            </div>
           </div>
         </div>
 
-        <div className="flex justify-center items-center gap-16 px-[84px] mb-[116px]">
-          <div>
-            <Image src={APY} alt="APY" className="w-[650px]" />
+        <div className="flex justify-center">
+          <div
+            className={`flex justify-center items-center gap-16 mb-[116px] w-[${max_width}]`}
+          >
+            <div>
+              <p className="w-[560px] leading-[50px] text-[3rem] mt-[52px] font-commonsDemiBold">
+                The simple way to manage your risk appetite
+              </p>
+              <p className="w-[560px] font-commonsRegular text-[1.4rem] mt-3 leading-7">
+                Every strategy for every crypto asset has a Cyborg mood (Core,
+                Adventurous, Brave) that grades its risks so you can make smart
+                investing decisions.
+              </p>
+            </div>
+            <div>
+              <Image src={MOOD} alt="MOOD" className="w-[650px]" />
+            </div>
           </div>
-          <div>
-            <p className="w-[560px] leading-[50px] text-[3rem] mt-[52px] font-commonsDemiBold">
-              See your potential earnings at a glance
-            </p>
-            <p className="w-[560px] font-commonsRegular text-[1.4rem] mt-3 leading-7">
-              Investing isn’t just about managing risk, though - it’s about
-              balancing risk and returns. CryptoDawg Earn makes this simple with
-              estimated annual yields visible at a glance.
-            </p>
+        </div>
+
+        <div className="flex justify-center">
+          <div
+            className={`flex justify-center items-center gap-16 mb-[116px] w-[${max_width}]`}
+          >
+            <div>
+              <Image src={APY} alt="APY" className="w-[650px]" />
+            </div>
+            <div>
+              <p className="w-[560px] leading-[50px] text-[3rem] mt-[52px] font-commonsDemiBold">
+                See your potential earnings at a glance
+              </p>
+              <p className="w-[560px] font-commonsRegular text-[1.4rem] mt-3 leading-7">
+                Investing isn’t just about managing risk, though - it’s about
+                balancing risk and returns. CryptoDawg Earn makes this simple
+                with estimated annual yields visible at a glance.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex justify-center graphLG">
+          <div
+            className={`flex justify-between items-center gap-36 w-[${max_width}] pb-20`}
+          >
+            <div>
+              <p className="w-[560px] leading-[50px] text-[3rem] mt-[52px] font-commonsDemiBold">
+                +2,143% APR.
+                <br />
+                Beats Bitcoin.
+                <br />
+                Fully automated.
+              </p>
+              <p className="w-[560px] font-commonsRegular text-[1.4rem] mt-3 leading-7">
+                Try CryptoDawg, a simple automated crypto trading app with
+                Hybrid Intelligence.
+              </p>
+              <button className="bg-[#601eff] rounded-md font-commonsDemiBold text-white py-1 px-2 text-xl mt-[70px]">
+                Learn More
+              </button>
+            </div>
+            <div>
+              <Image src={MOBILE} alt="MOBILE" className="mr-24" />
+            </div>
           </div>
         </div>
       </main>
