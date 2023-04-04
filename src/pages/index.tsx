@@ -36,20 +36,20 @@ export default function Home() {
       </Head>
       <main className="bg-white text-primary">
         {/* <p className={`${inter.className} text-4xl`}>hello world!</p> */}
-        <div className="fixed z-50 flex justify-center w-full bg-white drop-shadow-md">
-          <div className="flex justify-between py-[18px] contentDivLG">
+        <div className="fixed z-50 flex justify-center w-full bg-white drop-shadow-md px-7">
+          <div className="flex justify-between lg:py-[18px] contentDivLG">
             <div className="flex items-center">
               <Image
                 src={LOGO}
                 alt="LOGO"
                 className="w-[35px] h-[40px] mr-[10px]"
               />
-              <span className="text-[2.5rem] leading-[46px] font-commonsDemiBold mt-[10px]">
+              <span className="text-[2.2rem] lg:text-[2.5rem] leading-[46px] font-commonsDemiBold mt-[10px]">
                 CryptoDawg
               </span>
             </div>
 
-            <div className="flex items-center justify-center">
+            <div className="hidden lg:flex items-center justify-center">
               <ul className="flex gap-8 text-lg font-commonsDemiBold">
                 <li className="hover:cursor-pointer">Home</li>
                 <li className="hover:cursor-pointer">Core</li>
@@ -63,80 +63,89 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex justify-center">
-          <div className="flex justify-center gap-16 pt-56 contentDivLG">
-            <div>
-              <p className="w-[560px] leading-[90px] text-[4.8rem] mt-[52px] font-commonsDemiBold">
+        <div className="flex justify-center px-7">
+          <div className="flex flex-col lg:flex-row justify-center gap-16 pt-[8rem] lg:pt-56 contentDivLG">
+            <div className="lg:w-1/2">
+              <p className="leading-[45px] lg:leading-[90px] text-[2.5rem] lg:text-[4.8rem] lg:mt-[52px] font-commonsDemiBold text-center lg:text-left">
+                {/* <p className="w-[560px] leading-[90px] text-[4.8rem] mt-[52px] font-commonsDemiBold"> */}
                 Earn crypto your way with CryptoDawg Earn
               </p>
-              <p className="w-[560px] font-commonsRegular text-[1.4rem] mt-3 leading-7">
+              <p className="font-commonsRegular text-[1.1rem] lg:text-[1.4rem] mt-5 lg:mt-3 leading-5 lg:leading-7 text-center lg:text-left">
                 Investors aren’t one-size-fits-all, so why is your yield?
                 Generate the right yield for you with CryptoDawg Earn.
               </p>
-              <button className="bg-[#01c38d] rounded-md font-commonsDemiBold text-white py-1 px-2 text-xl mt-[70px]">
-                Notify Me
-              </button>
+              <div className="flex justify-center lg:justify-start">
+                <button className="bg-[#01c38d] rounded-md font-commonsDemiBold text-white pt-[2px] lg:py-1 px-2 text-[18px] lg:text-xl mt-[50px] lg:mt-[70px]">
+                  Notify Me
+                </button>
+              </div>
             </div>
-            <div>
-              <Image src={EARN_HERO} alt="EARN_HERO" className="w-[650px]" />
+            <div className="lg:w-1/2 flex justify-center items-center">
+              <Image
+                src={EARN_HERO}
+                alt="EARN_HERO"
+                className="w-[650px] -mt-4 lg:mt-0"
+              />
             </div>
           </div>
         </div>
 
-        <div className="flex justify-center">
-          <div className="flex justify-between mt-[215px] mb-[58px] contentDivLG">
-            <div className="flex flex-col items-center">
+        <div className="flex justify-center px-7">
+          <div className="flex flex-col lg:flex-row justify-between mt-[140px] lg:mt-[215px] mb-[58px] contentDivLG">
+            <div className="flex lg:flex-col items-center">
               <Image
                 src={DAILY_YIELD}
                 alt="DAILY_YIELD"
-                className="w-[80px] h-[80px] my-5 mx-[156px]"
+                className="w-[60px] h-[60px] lg:w-[80px] lg:h-[80px] my-3 lg:my-5 lg:mx-[156px]"
               />
-              <p className="mb-5 text-3xl font-commonsDemiBold">
+              <p className="ml-3 lg:ml-0 lg:mb-5 text-xl lg:text-3xl font-commonsDemiBold">
                 Daily Yield Payouts
               </p>
             </div>
-            <div className="flex flex-col items-center">
+            <div className="flex lg:flex-col items-center">
               <Image
                 src={COMPOUND_YIELD}
                 alt="COMPOUND_YIELD"
-                className="w-[80px] h-[80px] my-5 mx-[156px]"
+                className="w-[60px] h-[60px] lg:w-[80px] lg:h-[80px] my-3 lg:my-5 lg:mx-[156px]"
               />
-              <p className="mb-5 text-3xl font-commonsDemiBold">
+              <p className="ml-3 lg:ml-0 lg:mb-5 text-xl lg:text-3xl font-commonsDemiBold">
                 Compounded Yield
               </p>
             </div>
-            <div className="flex flex-col items-center">
+            <div className="flex lg:flex-col items-center">
               <Image
                 src={REFUND}
                 alt="REFUND"
-                className="w-[80px] h-[80px] my-5 mx-[156px]"
+                className="w-[60px] h-[60px] lg:w-[80px] lg:h-[80px] my-3 lg:my-5 lg:mx-[156px]"
               />
-              <p className="mb-5 text-3xl font-commonsDemiBold">
+              <p className="ml-3 lg:ml-0 lg:mb-5 text-xl lg:text-3xl font-commonsDemiBold">
                 24 Hour Withdrawal
               </p>
             </div>
           </div>
         </div>
 
+        {/* height: "423px",
+        width: "750px", */}
         <div className="flex justify-center">
-          <div className="flex contentDivLG flex-col items-center pt-[58px] px-[84px] mb-[93px]">
-            <p className="font-commonsDemiBold w-[660px] text-[45px] text-center">
+          <div className="flex lg:contentDivLG flex-col items-center pt-0 lg:pt-[58px] w-full mb-[93px]">
+            <p className="font-commonsDemiBold w-full lg:w-[660px] text-[1.9rem] lg:text-[45px] text-left lg:text-center px-7 lg:px-0 leading-8 lg:leading-[50px]">
               The CryptoDawg app makes it easy for you to earn a yield every
               day.
             </p>
-            <div className="rounded-xl overflow-clip mt-[44px]">
+            <div className="rounded-xl overflow-clip -mt-[5rem] -mb-[5rem] lg:mb-0 lg:mt-[44px] scale-[.41] md:scale-[.6] lg:scale-100">
               <YouTube videoId="AJZN2kb1aV4" opts={opts} onReady={_onReady} />
             </div>
           </div>
         </div>
 
-        <div className="flex justify-center">
-          <div className="flex justify-center items-center gap-16 mb-[116px] contentDivLG">
+        <div className="flex justify-center px-7 -mt-3 lg:mt-0">
+          <div className="flex flex-col-reverse lg:flex-row justify-center items-center gap-7 lg:gap-16 mb-[80px] lg:mb-[116px] lg:contentDivLG">
             <div>
-              <p className="w-[560px] leading-[50px] text-[3rem] mt-[52px] font-commonsDemiBold">
+              <p className="lg:w-[560px] leading-8 lg:leading-[50px] text-[1.9rem] lg:text-[3rem] lg:mt-[52px] font-commonsDemiBold">
                 The simple way to manage your risk appetite
               </p>
-              <p className="w-[560px] font-commonsRegular text-[1.4rem] mt-3 leading-7">
+              <p className="lg:w-[560px] font-commonsRegular text-[1.1rem] lg:text-[1.4rem] mt-3 leading-5 lg:leading-7">
                 Every strategy for every crypto asset has a Cyborg mood (Core,
                 Adventurous, Brave) that grades its risks so you can make smart
                 investing decisions.
@@ -148,16 +157,16 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex justify-center">
-          <div className="flex justify-center items-center gap-16 mb-[116px] contentDivLG">
+        <div className="flex justify-center px-7">
+          <div className="flex flex-col-reverse lg:flex-row justify-center items-center gap-4 lg:gap-16 mb-[80px] lg:mb-[116px] lg:contentDivLG">
             <div>
               <Image src={APY} alt="APY" className="w-[650px]" />
             </div>
             <div>
-              <p className="w-[560px] leading-[50px] text-[3rem] mt-[52px] font-commonsDemiBold">
+              <p className="lg:w-[560px] leading-8 lg:leading-[50px] text-[1.9rem] lg:text-[3rem] lg:mt-[52px] font-commonsDemiBold">
                 See your potential earnings at a glance
               </p>
-              <p className="w-[560px] font-commonsRegular text-[1.4rem] mt-3 leading-7">
+              <p className="lg:w-[560px] font-commonsRegular text-[1.1rem] lg:text-[1.4rem] mt-3 leading-5 lg:leading-7">
                 Investing isn’t just about managing risk, though - it’s about
                 balancing risk and returns. CryptoDawg Earn makes this simple
                 with estimated annual yields visible at a glance.
@@ -166,26 +175,32 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex justify-center graphLG">
-          <div className="flex justify-between items-center gap-36 contentDivLG pb-20">
+        <div className="flex justify-center graphLG px-7">
+          <div className="flex flex-col-reverse lg:flex-row justify-between items-center gap-7 lg:gap-36 lg:contentDivLG lg:pb-20 pb-10">
             <div>
-              <p className="w-[560px] leading-[50px] text-[3rem] mt-[52px] font-commonsDemiBold">
+              <p className="lg:w-[560px] leading-[45px] lg:leading-[50px] text-[2.5rem] lg:text-[3rem] lg:mt-[52px] font-commonsDemiBold">
                 +2,143% APR.
                 <br />
                 Beats Bitcoin.
                 <br />
                 Fully automated.
               </p>
-              <p className="w-[560px] font-commonsRegular text-[1.4rem] mt-3 leading-7">
+              <p className="lg:w-[560px] font-commonsRegular text-[1.5rem] lg:text-[1.4rem] mt-8 lg:mt-3 leading-7">
                 Try CryptoDawg, a simple automated crypto trading app with
                 Hybrid Intelligence.
               </p>
-              <button className="bg-[#601eff] rounded-md font-commonsDemiBold text-white py-1 px-2 text-xl mt-[70px]">
-                Learn More
-              </button>
+              <div className="w-full flex justify-center items-center lg:w-fit">
+                <button className="bg-[#601eff] rounded-md font-commonsDemiBold text-white py-4 lg:py-1 px-2 text-xl mt-[70px] w-full lg:w-fit">
+                  Learn More
+                </button>
+              </div>
             </div>
             <div>
-              <Image src={MOBILE} alt="MOBILE" className="mr-24" />
+              <Image
+                src={MOBILE}
+                alt="MOBILE"
+                className="mr-0 lg:mr-24 scale-[.6] lg:scale-100 -my-[6rem] lg:-my-0"
+              />
             </div>
           </div>
         </div>

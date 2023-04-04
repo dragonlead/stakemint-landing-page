@@ -19,6 +19,15 @@
   background-size: 100%, auto;
 }
 
+@media only screen and (max-width: 768px) {
+  .graphLG {
+    background-image: url("../assets/bg1sm.png");
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 100%, auto;
+  }
+}
+
 .contentDivLG {
   width: 1180px;
 }
