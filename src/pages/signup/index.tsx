@@ -29,8 +29,8 @@ export default function Home() {
             Welcome to CryptoDawg
           </p>
           <p className="font-commonsRegular text-[22px] mt-[14px] mb-[47px]">
-            We're excited to have you on board. Let's get started by creating
-            your account.
+            We&apos;re excited to have you on board. Let&apos;s get started by
+            creating your account.
           </p>
           <form action="" method="post">
             <div className="flex flex-col gap-4">
