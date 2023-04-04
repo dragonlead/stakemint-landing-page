@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import YouTube from "react-youtube";
 import { Squash as Hamburger } from "hamburger-react";
 
@@ -14,6 +15,7 @@ import MOBILE from "../assets/mobilephone.png";
 import { useState } from "react";
 
 export default function Home() {
+  const router = useRouter();
   const [nav, setNav] = useState(false);
   const handleNav = () => {
     setNav(!nav);
@@ -32,6 +34,11 @@ export default function Home() {
   function _onReady(event: any) {
     event.target.pauseVideo();
   }
+
+  const signUp = (e: any) => {
+    e.preventDefault();
+    router.push("/signup");
+  };
 
   return (
     <>
@@ -72,7 +79,10 @@ export default function Home() {
                 <li className="hover:cursor-pointer">Wallet</li>
                 <li className="hover:cursor-pointer">Careers</li>
               </ul>
-              <button className="rounded-md bg-green-400 px-4 pt-[6px] pb-1 font-commonsDemiBold ml-8">
+              <button
+                className="rounded-md bg-green-400 px-4 pt-[6px] pb-1 font-commonsDemiBold ml-8"
+                onClick={signUp}
+              >
                 Sign In/Sign Up
               </button>
             </div>
