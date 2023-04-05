@@ -10,6 +10,7 @@ export default function SignUp() {
     e.preventDefault();
     router.push("/signin");
   };
+
   return (
     <>
       <Header />
