@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Header from "../components/Header";
 import LOGO from "../../assets/swissborg-logo.png";
+import Link from "next/link";
 
 export default function SignIn() {
   return (
@@ -43,12 +44,12 @@ export default function SignIn() {
                 placeholder="Password"
                 className="w-full lg:w-[358px] h-[51px] outline-none border-[#c4c4c4] border-[1px] rounded-md px-4 hover:border-black focus:border-blue-500 focus:border-2 text-lg"
               />
-              <a
+              <Link
                 href="/reset-password"
                 className="font-commonsDemiBold text-blue-500 mt-4"
               >
                 Forgot Password?
-              </a>
+              </Link>
               <input
                 type="submit"
                 value="Continue"

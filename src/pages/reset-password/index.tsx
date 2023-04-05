@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Header from "../components/Header";
 import LOGO from "../../assets/swissborg-logo.png";
+import Link from "next/link";
 
 export default function ResetPassword() {
   return (
@@ -48,7 +49,7 @@ export default function ResetPassword() {
             </div>
           </div>
           <p className="font-commonsDemiBold text-blue-500 mt-6 text-lg text-center pt-[5px] leading-6 lg:-my-[6px]">
-            <a href="/">Back to CryptoDawg</a>
+            <Link href="/">Back to CryptoDawg</Link>
           </p>
         </div>
       </main>
