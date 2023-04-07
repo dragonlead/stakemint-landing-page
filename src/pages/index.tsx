@@ -98,6 +98,16 @@ export default function Home() {
 
   const [isLight, setIsLight] = useState(theme === "light" ? true : false);
 
+  const setThemeToggle = (e: any) => {
+    console.log(e);
+    setIsLight(e);
+    if (e) {
+      setTheme("light");
+    } else {
+      setTheme("dark");
+    }
+  };
+
   // const darkQuery =
   //   typeof document !== "undefined" &&
   //   window.matchMedia("(prefers-color-scheme: dark)");
@@ -211,19 +221,20 @@ export default function Home() {
                 variants={fadeInToUp}
                 initial="hidden"
                 whileInView="visible"
-                className="hidden lg:flex rounded-[20px] bg-blue-500 text-white relative"
+                className="hidden lg:flex rounded-[20px] bg-blue-500 text-white relative cursor-pointer"
+                onClick={() => setThemeToggle(!isLight)}
               >
                 <Image
                   src={MOON}
                   alt="MOON"
-                  className="cursor-pointer py-[8px] pl-[19px] w-10 h-10"
-                  onClick={() => setTheme("dark")}
+                  className=" py-[8px] pl-[19px] w-10 h-10"
+                  // onClick={() => setTheme("dark")}
                 />
                 <Image
                   src={SUN}
                   alt="SUN"
-                  className="cursor-pointer py-[8px] pr-[19px] ml-6 w-10 h-10"
-                  onClick={() => setTheme("light")}
+                  className="py-[8px] pr-[19px] ml-3 w-10 h-10"
+                  // onClick={() => setTheme("light")}
                 />
                 {/* <div
                   className={
@@ -284,24 +295,22 @@ export default function Home() {
                   </button>
                 </li>
                 <li className="py-2 pl-4">
-                  <div className="flex rounded-[20px] bg-blue-500 text-white relative w-fit">
+                  <div
+                    className="flex rounded-[20px] bg-blue-500 text-white relative w-fit hover:cursor-pointer"
+                    onClick={() => {
+                      setThemeToggle(!isLight);
+                      setNav(!nav);
+                    }}
+                  >
                     <Image
                       src={MOON}
                       alt="MOON"
-                      className="cursor-pointer py-[8px] pl-[19px] w-10 h-10"
-                      onClick={() => {
-                        setTheme("dark");
-                        setNav(!nav);
-                      }}
+                      className="py-[8px] pl-[19px] w-10 h-10"
                     />
                     <Image
                       src={SUN}
                       alt="SUN"
-                      className="cursor-pointer py-[8px] pr-[19px] ml-6 w-10 h-10"
-                      onClick={() => {
-                        setTheme("light");
-                        setNav(!nav);
-                      }}
+                      className="py-[8px] pr-[19px] ml-3 w-10 h-10"
                     />
                     {/* <div
                       className={
