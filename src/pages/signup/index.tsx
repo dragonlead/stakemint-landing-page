@@ -11,12 +11,20 @@ export default function SignUp() {
     router.push("/signin");
   };
 
+  const homePage = (e: any) => {
+    e.preventDefault();
+    router.push("/");
+  };
+
   return (
     <>
       <Header />
       <main className="flex flex-col lg:flex-row text-primary">
         <div className="w-full lg:w-[35%] bg-[#e3edff]">
-          <div className="flex items-center m-[30px]">
+          <div
+            className="flex items-center m-[30px] hover:cursor-pointer"
+            onClick={homePage}
+          >
             <Image
               src={LOGO}
               alt="LOGO"

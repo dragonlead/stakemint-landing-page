@@ -3,7 +3,10 @@ import { useRouter } from "next/router";
 import YouTube from "react-youtube";
 import { Squash as Hamburger } from "hamburger-react";
 import { motion } from "framer-motion";
+import Marquee from "react-fast-marquee";
 
+import SUN from "../assets/sun.png";
+import MOON from "../assets/moon.png";
 import LOGO from "../assets/swissborg-logo.png";
 import EARN_HERO from "../assets/earn-page-hero.png";
 import COMPOUND_YIELD from "../assets/compound_yield.svg";
@@ -12,8 +15,19 @@ import REFUND from "../assets/refund.svg";
 import MOOD from "../assets/earnpage_cyborgmood.png";
 import APY from "../assets/earnpage_apy.png";
 import MOBILE from "../assets/mobilephone.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "./components/Header";
+// import COVER_WHITE from "../assets/coverDivWhite.png";
+
+import Arbitrum from "../assets/ArbitrumLogo.png";
+import Aurora from "../assets/AuroraLogo.png";
+import Avalanche from "../assets/AvalancheLogo.png";
+import Base from "../assets/BaseLogo.png";
+import BNB from "../assets/BNBLogo.png";
+import Ethereum from "../assets/EthereumLogo.png";
+import GnosisChain from "../assets/GnosisChainLogo.png";
+import Optimism from "../assets/OptimismLogo.png";
+import Polygon from "../assets/PolygonLogo.png";
 
 export default function Home() {
   const router = useRouter();
@@ -73,12 +87,71 @@ export default function Home() {
     },
   };
 
+  const [theme, setTheme] = useState(
+    // localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
+    typeof window !== "undefined" ? localStorage.getItem("theme") : "light"
+  );
+
+  const [gradientValue, setGradientValue] = useState(
+    theme === "light" ? 255 : 0
+  );
+  const element = typeof document !== "undefined" && document.documentElement;
+  const darkQuery =
+    typeof document !== "undefined" &&
+    window.matchMedia("(prefers-color-scheme: dark)");
+
+  function onWindowsMatch() {
+    if (typeof element || typeof window == "undefined") {
+      return;
+    }
+    if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) && darkQuery.matches)
+    ) {
+      element.classList.add("dark");
+    } else {
+      element.classList.remove("dark");
+    }
+  }
+
+  onWindowsMatch();
+
+  useEffect(() => {
+    switch (theme) {
+      case "dark":
+        element.classList.add("dark");
+        localStorage.setItem("theme", "dark");
+        setGradientValue(0);
+        break;
+
+      case "light":
+        element.classList.remove("dark");
+        localStorage.setItem("theme", "light");
+        setGradientValue(255);
+        break;
+
+      default:
+        localStorage.removeItem("theme");
+        onWindowsMatch();
+        break;
+    }
+  }, [theme]);
+
+  // const ChainsLogo = (logoSrc: any, logoName: string, logoColor: any) => (
+  //   <div
+  //     className={`font-commonsDemiBold flex items-center justify-center bg-${logoColor} rounded-full py-2 px-3 mr-2`}
+  //   >
+  //     <Image src={logoSrc} alt={logoName} className="w-[40px] h-[40px] mr-2" />
+  //     <p className="text-lg">{logoName}</p>
+  //   </div>
+  // );
+
   return (
     <>
       <Header />
-      <main className="bg-white text-primary">
+      <main className="bg-white dark:bg-black text-primary dark:text-white">
         {/* <p className={`${inter.className} text-4xl`}>hello world!</p> */}
-        <div className="fixed z-50 flex justify-center w-full bg-white drop-shadow-md px-7">
+        <div className="fixed z-50 flex justify-center w-full bg-white dark:bg-black drop-shadow-md px-7">
           <div className="flex justify-between items-center py-1 lg:py-[18px] contentDivLG">
             <motion.div
               variants={fadeInToUp}
@@ -121,21 +194,47 @@ export default function Home() {
                 variants={fadeInToUp}
                 initial="hidden"
                 whileInView="visible"
-                className="rounded-md bg-green-400 px-4 pt-[6px] pb-1 font-commonsDemiBold ml-8"
+                className="rounded-md bg-green-400 px-4 pt-[6px] pb-1 font-commonsDemiBold mx-8"
                 onClick={signUp}
               >
                 Sign In/Sign Up
               </motion.button>
+              <motion.div
+                variants={fadeInToUp}
+                initial="hidden"
+                whileInView="visible"
+                className="hidden lg:flex rounded-[20px] bg-blue-500 text-white relative"
+              >
+                <Image
+                  src={MOON}
+                  alt="MOON"
+                  className="cursor-pointer py-[8px] pl-[19px] w-10 h-10"
+                  onClick={() => setTheme("dark")}
+                />
+                <Image
+                  src={SUN}
+                  alt="SUN"
+                  className="cursor-pointer py-[8px] pr-[19px] ml-6 w-10 h-10"
+                  onClick={() => setTheme("light")}
+                />
+                <div
+                  className={
+                    theme === "dark"
+                      ? "w-[3.3rem] rounded-full bg-myToggle absolute top-0 left-0 bottom-0 translate-x-0 ease-in-out duration-500"
+                      : "w-[3.3rem] rounded-full bg-myToggle absolute top-0 left-0 bottom-0 translate-x-full ease-in-out duration-500"
+                  }
+                />
+              </motion.div>
             </div>
 
             <div
               className={
                 nav
-                  ? "fixed left-0 top-16 w-full h-fit z-50 bg-white ease-in-out duration-500"
-                  : "fixed left-0 top-[-500%] w-full h-fit z-50 ease-in-out duration-500"
+                  ? "fixed left-0 top-[60px] w-full h-fit z-50 bg-white dark:bg-black ease-in-out duration-300"
+                  : "fixed left-0 top-[-1000%] w-full h-fit z-50 ease-in-out duration-300"
               }
             >
-              <ul className="p-4 text-primary font-commonsDemiBold">
+              <ul className="p-4 text-primary dark:text-white font-commonsDemiBold">
                 <li
                   className="p-4 active:bg-gray-100 hover:cursor-pointer"
                   onClick={handleNav}
@@ -171,13 +270,76 @@ export default function Home() {
                     Sign In/Sign Up
                   </button>
                 </li>
+                <li className="py-2 pl-4">
+                  <div className="flex rounded-[20px] bg-blue-500 text-white relative w-fit">
+                    <Image
+                      src={MOON}
+                      alt="MOON"
+                      className="cursor-pointer py-[8px] pl-[19px] w-10 h-10"
+                      onClick={() => {
+                        setTheme("dark");
+                        setNav(!nav);
+                      }}
+                    />
+                    <Image
+                      src={SUN}
+                      alt="SUN"
+                      className="cursor-pointer py-[8px] pr-[19px] ml-6 w-10 h-10"
+                      onClick={() => {
+                        setTheme("light");
+                        setNav(!nav);
+                      }}
+                    />
+                    <div
+                      className={
+                        theme === "dark"
+                          ? "w-[3.3rem] rounded-full bg-myToggle absolute top-0 left-0 bottom-0 translate-x-0 ease-in-out duration-500"
+                          : "w-[3.3rem] rounded-full bg-myToggle absolute top-0 left-0 bottom-0 translate-x-full ease-in-out duration-500"
+                      }
+                    />
+                  </div>
+                </li>
               </ul>
             </div>
           </div>
         </div>
 
+        <div className="flex justify-center px-1 lg:px-7">
+          <div className="text-black font-commonsDemiBold mt-[6rem] lg:mt-[8rem] pt-12 lg:pt-[200px] bg-white dark:bg-black contentDivLG pb-40 lg:pb-[204px]  rounded-2xl relative px-5 lg:pl-[80px] overflow-clip">
+            <video
+              autoPlay
+              muted
+              loop
+              className="absolute top-0 left-0 right-0 bottom-0 w-full h-full object-cover z-0 p-1 rounded-2xl"
+            >
+              <source src="/safe-logo.mp4" type="video/mp4" />
+            </video>
+            {/* <Image
+              src={COVER_WHITE}
+              alt="COVER_WHITE"
+              className="absolute bottom-[3px] right-[3px] z-[1] w-[25%] lg:w-[589px]"
+            /> */}
+            {/* <div className="w-[100px] h-[100px] bg-white dark:bg-black absolute -bottom-2 -right-1 z-[2]" /> */}
+            <div className="relative z-[2]">
+              <p className="leading-[45px] lg:leading-[90px] text-[2.5rem] lg:text-[4.8rem] w-[200px] lg:w-[600px]">
+                Unlock Digital Asset Ownership
+              </p>
+              <p className="font-commonsRegular font-medium text-[1.4rem] lg:text-[1.4rem] mt-5 lg:mt-3 leading-5 lg:leading-7 lg:w-[500px]">
+                Safe is the most trusted decentralized custody protocol and
+                collective asset management platform on Ethereum and the EVM
+              </p>
+              <button className="bg-black rounded-md font-commonsDemiBold text-white py-5 lg:py-3 px-4 text-xl mt-11 mr-3">
+                Build
+              </button>
+              <button className="bg-white dark:bg-black rounded-md font-commonsDemiBold text-black py-5 lg:py-3 px-4 text-xl mt-11">
+                Launch Wallet
+              </button>
+            </div>
+          </div>
+        </div>
+
         <div className="flex justify-center px-7">
-          <div className="flex flex-col lg:flex-row justify-center gap-16 pt-[8rem] lg:pt-56 contentDivLG">
+          <div className="flex flex-col lg:flex-row justify-center gap-16 pt-[116px] lg:pt-56 contentDivLG">
             <div className="lg:w-1/2">
               <motion.p
                 variants={fadeInToUp}
@@ -410,6 +572,158 @@ export default function Home() {
               />
             </motion.div>
           </div>
+        </div>
+
+        <div className="mt-[116px] pb-[58px]">
+          <p className="font-commonsDemiBold text-[2.5rem] lg:text-[4rem] text-center mb-8 lg:mb-4">
+            Available on 12+ networks
+          </p>
+          <Marquee
+            direction="left"
+            speed={25}
+            className="mb-6"
+            gradientWidth={100}
+            gradientColor={[gradientValue, gradientValue, gradientValue]}
+          >
+            <div className="font-commonsDemiBold flex items-center justify-center bg-[#28a0f0] rounded-full py-2 px-3 mr-2">
+              <Image
+                src={Arbitrum}
+                alt="Arbitrum"
+                className="w-[40px] h-[40px] mr-2"
+              />
+              <p className="text-lg text-white">Arbitrum</p>
+            </div>
+            <div className="font-commonsDemiBold flex items-center justify-center bg-[#e8e7e6] rounded-full py-2 px-3 mr-2">
+              <Image
+                src={Ethereum}
+                alt="Ethereum"
+                className="w-[40px] h-[40px] mr-2"
+              />
+              <p className="text-lg">Ethereum Mainnet</p>
+            </div>
+            <div className="font-commonsDemiBold flex items-center justify-center bg-[#f0b90b] rounded-full py-2 px-3 mr-2">
+              <Image src={BNB} alt="BNB" className="w-[40px] h-[40px] mr-2" />
+              <p className="text-lg">BNB Smart Chain</p>
+            </div>
+            <div className="font-commonsDemiBold flex items-center justify-center bg-[#ee1a37] rounded-full py-2 px-3 mr-2">
+              <Image
+                src={Optimism}
+                alt="Optimism"
+                className="w-[40px] h-[40px] mr-2"
+              />
+              <p className="text-lg text-white">Optimism</p>
+            </div>
+            <div className="font-commonsDemiBold flex items-center justify-center bg-[#673bb2] rounded-full py-2 px-3 mr-2">
+              <Image
+                src={Polygon}
+                alt="Polygon"
+                className="w-[40px] h-[40px] mr-2"
+              />
+              <p className="text-lg text-white">Polygon</p>
+            </div>
+            <div className="font-commonsDemiBold flex items-center justify-center bg-[#000000] rounded-full py-2 px-3 mr-2">
+              <Image
+                src={Avalanche}
+                alt="Avalanche"
+                className="w-[40px] h-[40px] mr-2"
+              />
+              <p className="text-lg text-white">Avalanche</p>
+            </div>
+            <div className="font-commonsDemiBold flex items-center justify-center bg-[#48a9a6] rounded-full py-2 px-3 mr-2">
+              <Image
+                src={GnosisChain}
+                alt="GnosisChain"
+                className="w-[40px] h-[40px] mr-2"
+              />
+              <p className="text-lg text-white">Gnosis Chain</p>
+            </div>
+            <div className="font-commonsDemiBold flex items-center justify-center bg-[#f0b90b] rounded-full py-2 px-3 mr-2">
+              <Image src={BNB} alt="BNB" className="w-[40px] h-[40px] mr-2" />
+              <p className="text-lg">BNB Smart Chain</p>
+            </div>
+            <div className="font-commonsDemiBold flex items-center justify-center bg-[#78d64b] rounded-full py-2 px-3 mr-2">
+              <Image
+                src={Aurora}
+                alt="Aurora"
+                className="w-[40px] h-[40px] mr-2"
+              />
+              <p className="text-lg text-white">Aurora</p>
+            </div>
+          </Marquee>
+          <Marquee
+            direction="right"
+            speed={25}
+            gradientWidth={100}
+            gradientColor={[gradientValue, gradientValue, gradientValue]}
+          >
+            <div className="font-commonsDemiBold flex items-center justify-center bg-[#28a0f0] rounded-full py-2 px-3 mr-2">
+              <Image
+                src={Arbitrum}
+                alt="Arbitrum"
+                className="w-[40px] h-[40px] mr-2"
+              />
+              <p className="text-lg text-white">Arbitrum</p>
+            </div>
+            <div className="font-commonsDemiBold flex items-center justify-center bg-[#e8e7e6] rounded-full py-2 px-3 mr-2">
+              <Image
+                src={Ethereum}
+                alt="Ethereum"
+                className="w-[40px] h-[40px] mr-2"
+              />
+              <p className="text-lg">Ethereum Mainnet</p>
+            </div>
+            <div className="font-commonsDemiBold flex items-center justify-center bg-[#f0b90b] rounded-full py-2 px-3 mr-2">
+              <Image src={BNB} alt="BNB" className="w-[40px] h-[40px] mr-2" />
+              <p className="text-lg">BNB Smart Chain</p>
+            </div>
+            <div className="font-commonsDemiBold flex items-center justify-center bg-[#083cae] rounded-full py-2 px-3 mr-2">
+              <Image src={Base} alt="Base" className="w-[40px] h-[40px] mr-2" />
+              <p className="text-lg text-white">Base</p>
+            </div>
+            <div className="font-commonsDemiBold flex items-center justify-center bg-[#ee1a37] rounded-full py-2 px-3 mr-2">
+              <Image
+                src={Optimism}
+                alt="Optimism"
+                className="w-[40px] h-[40px] mr-2"
+              />
+              <p className="text-lg text-white">Optimism</p>
+            </div>
+            <div className="font-commonsDemiBold flex items-center justify-center bg-[#673bb2] rounded-full py-2 px-3 mr-2">
+              <Image
+                src={Polygon}
+                alt="Polygon"
+                className="w-[40px] h-[40px] mr-2"
+              />
+              <p className="text-lg text-white">Polygon</p>
+            </div>
+            <div className="font-commonsDemiBold flex items-center justify-center bg-[#000000] rounded-full py-2 px-3 mr-2">
+              <Image
+                src={Avalanche}
+                alt="Avalanche"
+                className="w-[40px] h-[40px] mr-2"
+              />
+              <p className="text-lg text-white">Avalanche</p>
+            </div>
+            <div className="font-commonsDemiBold flex items-center justify-center bg-[#48a9a6] rounded-full py-2 px-3 mr-2">
+              <Image
+                src={GnosisChain}
+                alt="GnosisChain"
+                className="w-[40px] h-[40px] mr-2"
+              />
+              <p className="text-lg text-white">Gnosis Chain</p>
+            </div>
+            <div className="font-commonsDemiBold flex items-center justify-center bg-[#78d64b] rounded-full py-2 px-3 mr-2">
+              <Image
+                src={Aurora}
+                alt="Aurora"
+                className="w-[40px] h-[40px] mr-2"
+              />
+              <p className="text-lg text-white">Aurora</p>
+            </div>
+          </Marquee>
+          <p className="text-[#a1a3a7] font-commonsRegular text-center text-xl mt-8">
+            and more, including testnets
+          </p>
         </div>
       </main>
     </>

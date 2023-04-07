@@ -2,14 +2,24 @@ import Image from "next/image";
 import Header from "../components/Header";
 import LOGO from "../../assets/swissborg-logo.png";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function ResetPassword() {
+  const router = useRouter();
+
+  const homePage = (e: any) => {
+    e.preventDefault();
+    router.push("/");
+  };
   return (
     <>
       <Header />
       <main className="lg:bg-[#414259] w-full h-full lg:h-screen lg:flex justify-center items-center text-primary">
         <div className="bg-white w-fit rounded-md p-[40px] lg:flex flex-col gap-[24px]">
-          <div className="flex items-center justify-center">
+          <div
+            className="flex items-center justify-center hover:cursor-pointer"
+            onClick={homePage}
+          >
             <Image
               src={LOGO}
               alt="LOGO"

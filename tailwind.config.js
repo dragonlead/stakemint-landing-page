@@ -8,10 +8,12 @@ module.exports = {
     // Or if using `src` directory:
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
         primary: "#191e29",
+        myToggle: "#4ED938",
       },
       backgroundImage: {
         graphLG: "url('/src/assets/bg1.png')",
