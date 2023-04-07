@@ -95,28 +95,33 @@ export default function Home() {
   const [gradientValue, setGradientValue] = useState(
     theme === "light" ? 255 : 0
   );
+
+  const [isLight, setIsLight] = useState(theme === "light" ? true : false);
   const element = typeof document !== "undefined" && document.documentElement;
-  const darkQuery =
-    typeof document !== "undefined" &&
-    window.matchMedia("(prefers-color-scheme: dark)");
+  // const darkQuery =
+  //   typeof document !== "undefined" &&
+  //   window.matchMedia("(prefers-color-scheme: dark)");
 
-  function onWindowsMatch() {
-    if (typeof element || typeof window == "undefined") {
-      return;
-    }
-    if (
-      localStorage.theme === "dark" ||
-      (!("theme" in localStorage) && darkQuery.matches)
-    ) {
-      element.classList.add("dark");
-    } else {
-      element.classList.remove("dark");
-    }
-  }
+  // function onWindowsMatch() {
+  //   if (typeof element || typeof window == "undefined") {
+  //     return;
+  //   }
+  //   if (
+  //     localStorage.theme === "dark" ||
+  //     (!("theme" in localStorage) && darkQuery.matches)
+  //   ) {
+  //     element.classList.add("dark");
+  //   } else {
+  //     element.classList.remove("dark");
+  //   }
+  //   console.log(theme);
+  // }
 
-  onWindowsMatch();
+  // onWindowsMatch();
 
   useEffect(() => {
+    console.log(theme);
+    console.log(isLight);
     switch (theme) {
       case "dark":
         element.classList.add("dark");
@@ -131,8 +136,10 @@ export default function Home() {
         break;
 
       default:
-        localStorage.removeItem("theme");
-        onWindowsMatch();
+        element.classList.remove("dark");
+        localStorage.setItem("theme", "light");
+        setGradientValue(255);
+        // onWindowsMatch();
         break;
     }
   }, [theme]);
@@ -217,13 +224,18 @@ export default function Home() {
                   className="cursor-pointer py-[8px] pr-[19px] ml-6 w-10 h-10"
                   onClick={() => setTheme("light")}
                 />
-                <div
+                {/* <div
                   className={
-                    theme === "dark"
+                    isLight
                       ? "w-[3.3rem] rounded-full bg-myToggle absolute top-0 left-0 bottom-0 translate-x-0 ease-in-out duration-500"
                       : "w-[3.3rem] rounded-full bg-myToggle absolute top-0 left-0 bottom-0 translate-x-full ease-in-out duration-500"
                   }
-                />
+                ></div> */}
+                {/* {!isLight ? (
+                  <div className="w-[3.3rem] rounded-full bg-myToggle absolute top-0 left-0 bottom-0 translate-x-0 ease-in-out duration-500" />
+                ) : (
+                  <div className="w-[3.3rem] rounded-full bg-myToggle absolute top-0 left-0 bottom-0 translate-x-full ease-in-out duration-500" />
+                )} */}
               </motion.div>
             </div>
 
@@ -290,13 +302,13 @@ export default function Home() {
                         setNav(!nav);
                       }}
                     />
-                    <div
+                    {/* <div
                       className={
-                        theme === "dark"
+                        isLight
                           ? "w-[3.3rem] rounded-full bg-myToggle absolute top-0 left-0 bottom-0 translate-x-0 ease-in-out duration-500"
                           : "w-[3.3rem] rounded-full bg-myToggle absolute top-0 left-0 bottom-0 translate-x-full ease-in-out duration-500"
                       }
-                    />
+                    /> */}
                   </div>
                 </li>
               </ul>
@@ -320,7 +332,7 @@ export default function Home() {
               className="absolute bottom-[3px] right-[3px] z-[1] w-[25%] lg:w-[589px]"
             /> */}
             {/* <div className="w-[100px] h-[100px] bg-white dark:bg-black absolute -bottom-2 -right-1 z-[2]" /> */}
-            <div className="relative z-[2]">
+            <div className="relative z-[2] text-primary dark:text-white">
               <p className="leading-[45px] lg:leading-[90px] text-[2.5rem] lg:text-[4.8rem] w-[200px] lg:w-[600px]">
                 Unlock Digital Asset Ownership
               </p>
@@ -331,7 +343,7 @@ export default function Home() {
               <button className="bg-black rounded-md font-commonsDemiBold text-white py-5 lg:py-3 px-4 text-xl mt-11 mr-3">
                 Build
               </button>
-              <button className="bg-white dark:bg-black rounded-md font-commonsDemiBold text-black py-5 lg:py-3 px-4 text-xl mt-11">
+              <button className="dark:text-white bg-white dark:bg-black rounded-md font-commonsDemiBold text-black py-5 lg:py-3 px-4 text-xl mt-11">
                 Launch Wallet
               </button>
             </div>
