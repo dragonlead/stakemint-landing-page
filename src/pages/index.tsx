@@ -5,8 +5,8 @@ import { Squash as Hamburger } from "hamburger-react";
 import { motion } from "framer-motion";
 import Marquee from "react-fast-marquee";
 
-import SUN from "../assets/sun.png";
-import MOON from "../assets/moon.png";
+import SUN from "../assets/sun.svg";
+import MOON from "../assets/moon.svg";
 import LOGO from "../assets/swissborg-logo.png";
 import EARN_HERO from "../assets/earn-page-hero.png";
 import COMPOUND_YIELD from "../assets/compound_yield.svg";
@@ -221,21 +221,25 @@ export default function Home() {
                 variants={fadeInToUp}
                 initial="hidden"
                 whileInView="visible"
-                className="hidden lg:flex rounded-[20px] bg-blue-500 text-white relative cursor-pointer"
+                className="hidden lg:flex rounded-md bg-slate-400 dark:bg-gray-800 relative cursor-pointer"
                 onClick={() => setThemeToggle(!isLight)}
               >
-                <Image
-                  src={MOON}
-                  alt="MOON"
-                  className=" py-[8px] pl-[19px] w-10 h-10"
-                  // onClick={() => setTheme("dark")}
-                />
-                <Image
-                  src={SUN}
-                  alt="SUN"
-                  className="py-[8px] pr-[19px] ml-3 w-10 h-10"
-                  // onClick={() => setTheme("light")}
-                />
+                {!isLight && (
+                  <Image
+                    src={MOON}
+                    alt="MOON"
+                    className="py-[8px] w-10 h-10"
+                    // onClick={() => setTheme("dark")}
+                  />
+                )}
+                {isLight && (
+                  <Image
+                    src={SUN}
+                    alt="SUN"
+                    className="py-[8px] w-10 h-10"
+                    // onClick={() => setTheme("light")}
+                  />
+                )}
                 {/* <div
                   className={
                     isLight
@@ -296,22 +300,28 @@ export default function Home() {
                 </li>
                 <li className="py-2 pl-4">
                   <div
-                    className="flex rounded-[20px] bg-blue-500 text-white relative w-fit hover:cursor-pointer"
+                    className="flex rounded-[20px] bg-slate-400 dark:bg-gray-800 text-white relative w-fit hover:cursor-pointer"
                     onClick={() => {
                       setThemeToggle(!isLight);
                       setNav(!nav);
                     }}
                   >
-                    <Image
-                      src={MOON}
-                      alt="MOON"
-                      className="py-[8px] pl-[19px] w-10 h-10"
-                    />
-                    <Image
-                      src={SUN}
-                      alt="SUN"
-                      className="py-[8px] pr-[19px] ml-3 w-10 h-10"
-                    />
+                    {!isLight && (
+                      <Image
+                        src={MOON}
+                        alt="MOON"
+                        className="py-[8px] w-10 h-10"
+                        // onClick={() => setTheme("dark")}
+                      />
+                    )}
+                    {isLight && (
+                      <Image
+                        src={SUN}
+                        alt="SUN"
+                        className="py-[8px] w-10 h-10"
+                        // onClick={() => setTheme("light")}
+                      />
+                    )}
                     {/* <div
                       className={
                         isLight
