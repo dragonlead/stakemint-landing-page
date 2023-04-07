@@ -97,7 +97,7 @@ export default function Home() {
   );
 
   const [isLight, setIsLight] = useState(theme === "light" ? true : false);
-  const element = typeof document !== "undefined" && document.documentElement;
+
   // const darkQuery =
   //   typeof document !== "undefined" &&
   //   window.matchMedia("(prefers-color-scheme: dark)");
@@ -122,6 +122,7 @@ export default function Home() {
   useEffect(() => {
     console.log(theme);
     console.log(isLight);
+    const element = document.documentElement;
     switch (theme) {
       case "dark":
         element.classList.add("dark");
