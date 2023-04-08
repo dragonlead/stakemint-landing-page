@@ -15,7 +15,7 @@ import REFUND from "../assets/refund.svg";
 import MOOD from "../assets/earnpage_cyborgmood.png";
 import APY from "../assets/earnpage_apy.png";
 import MOBILE from "../assets/mobilephone.png";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Header from "./components/Header";
 // import COVER_WHITE from "../assets/coverDivWhite.png";
 
@@ -53,6 +53,16 @@ export default function Home() {
   const signUp = (e: any) => {
     e.preventDefault();
     router.push("/signup");
+  };
+
+  const signIn = (e: any) => {
+    e.preventDefault();
+    router.push("/signin");
+  };
+
+  const goHomePage = (e: any) => {
+    e.preventDefault();
+    router.push("/");
   };
 
   const fadeInToUp = {
@@ -175,7 +185,8 @@ export default function Home() {
               variants={fadeInToUp}
               initial="hidden"
               whileInView="visible"
-              className="flex items-center"
+              className="flex items-center hover:cursor-pointer"
+              onClick={goHomePage}
             >
               <Image
                 src={LOGO}
@@ -187,7 +198,7 @@ export default function Home() {
               </span>
             </motion.div>
 
-            <div className="block lg:hidden -mr-3">
+            <div className="block -mr-3 lg:hidden">
               <Hamburger
                 toggled={nav}
                 toggle={handleNav}
@@ -196,12 +207,12 @@ export default function Home() {
               />
             </div>
 
-            <div className="hidden lg:flex items-center justify-center">
+            <div className="items-center justify-center hidden lg:flex">
               <motion.ul
                 variants={fadeInToUp}
                 initial="hidden"
                 whileInView="visible"
-                className="flex gap-8 text-lg font-commonsDemiBold"
+                className="flex gap-8 pt-1 text-lg font-commonsDemiBold"
               >
                 <li className="hover:cursor-pointer">Home</li>
                 <li className="hover:cursor-pointer">Core</li>
@@ -212,54 +223,41 @@ export default function Home() {
                 variants={fadeInToUp}
                 initial="hidden"
                 whileInView="visible"
-                className="rounded-md bg-green-400 px-4 pt-[6px] pb-1 font-commonsDemiBold mx-8"
+                className="px-4 pt-2 pb-1 mx-8 bg-green-400 rounded-md font-commonsDemiBold"
+                onClick={signIn}
+              >
+                Sign In
+              </motion.button>
+              <motion.button
+                variants={fadeInToUp}
+                initial="hidden"
+                whileInView="visible"
+                className="px-4 pt-2 pb-1 mr-8 bg-green-400 rounded-md font-commonsDemiBold"
                 onClick={signUp}
               >
-                Sign In/Sign Up
+                Sign Up
               </motion.button>
               <motion.div
                 variants={fadeInToUp}
                 initial="hidden"
                 whileInView="visible"
-                className="hidden lg:flex rounded-md bg-slate-400 dark:bg-gray-800 relative cursor-pointer"
+                className="relative hidden rounded-md cursor-pointer lg:flex bg-slate-300 dark:bg-gray-800"
                 onClick={() => setThemeToggle(!isLight)}
               >
                 {!isLight && (
-                  <Image
-                    src={MOON}
-                    alt="MOON"
-                    className="py-[8px] w-10 h-10"
-                    // onClick={() => setTheme("dark")}
-                  />
+                  <Image src={MOON} alt="MOON" className="py-[8px] w-10 h-10" />
                 )}
                 {isLight && (
-                  <Image
-                    src={SUN}
-                    alt="SUN"
-                    className="py-[8px] w-10 h-10"
-                    // onClick={() => setTheme("light")}
-                  />
+                  <Image src={SUN} alt="SUN" className="py-[8px] w-10 h-10" />
                 )}
-                {/* <div
-                  className={
-                    isLight
-                      ? "w-[3.3rem] rounded-full bg-myToggle absolute top-0 left-0 bottom-0 translate-x-0 ease-in-out duration-500"
-                      : "w-[3.3rem] rounded-full bg-myToggle absolute top-0 left-0 bottom-0 translate-x-full ease-in-out duration-500"
-                  }
-                ></div> */}
-                {/* {!isLight ? (
-                  <div className="w-[3.3rem] rounded-full bg-myToggle absolute top-0 left-0 bottom-0 translate-x-0 ease-in-out duration-500" />
-                ) : (
-                  <div className="w-[3.3rem] rounded-full bg-myToggle absolute top-0 left-0 bottom-0 translate-x-full ease-in-out duration-500" />
-                )} */}
               </motion.div>
             </div>
 
             <div
               className={
                 nav
-                  ? "fixed left-0 top-[60px] w-full h-fit z-50 bg-white dark:bg-black ease-in-out duration-300"
-                  : "fixed left-0 top-[-1000%] w-full h-fit z-50 ease-in-out duration-300"
+                  ? "block lg:hidden fixed left-0 top-[60px] w-full h-fit z-50 bg-white dark:bg-black ease-in-out duration-300"
+                  : "block lg:hidden fixed left-0 top-[-1000%] w-full h-fit z-50 ease-in-out duration-300"
               }
             >
               <ul className="p-4 text-primary dark:text-white font-commonsDemiBold">
@@ -292,15 +290,26 @@ export default function Home() {
                   onClick={handleNav}
                 >
                   <button
-                    className="rounded-md bg-green-400 px-4 pt-[6px] pb-1 font-commonsDemiBold"
+                    className="px-4 pt-2 pb-1 bg-green-400 rounded-md font-commonsDemiBold"
+                    onClick={signIn}
+                  >
+                    Sign In
+                  </button>
+                </li>
+                <li
+                  className="p-4 active:bg-gray-100 hover:cursor-pointer"
+                  onClick={handleNav}
+                >
+                  <button
+                    className="px-4 pt-2 pb-1 bg-green-400 rounded-md font-commonsDemiBold"
                     onClick={signUp}
                   >
-                    Sign In/Sign Up
+                    Sign Up
                   </button>
                 </li>
                 <li className="py-2 pl-4">
                   <div
-                    className="flex rounded-[20px] bg-slate-400 dark:bg-gray-800 text-white relative w-fit hover:cursor-pointer"
+                    className="relative flex text-white rounded-md bg-slate-200 dark:bg-gray-800 w-fit hover:cursor-pointer"
                     onClick={() => {
                       setThemeToggle(!isLight);
                       setNav(!nav);
@@ -311,7 +320,6 @@ export default function Home() {
                         src={MOON}
                         alt="MOON"
                         className="py-[8px] w-10 h-10"
-                        // onClick={() => setTheme("dark")}
                       />
                     )}
                     {isLight && (
@@ -319,16 +327,8 @@ export default function Home() {
                         src={SUN}
                         alt="SUN"
                         className="py-[8px] w-10 h-10"
-                        // onClick={() => setTheme("light")}
                       />
                     )}
-                    {/* <div
-                      className={
-                        isLight
-                          ? "w-[3.3rem] rounded-full bg-myToggle absolute top-0 left-0 bottom-0 translate-x-0 ease-in-out duration-500"
-                          : "w-[3.3rem] rounded-full bg-myToggle absolute top-0 left-0 bottom-0 translate-x-full ease-in-out duration-500"
-                      }
-                    /> */}
                   </div>
                 </li>
               </ul>
@@ -336,13 +336,13 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex justify-center px-1 lg:px-7">
-          <div className="text-black font-commonsDemiBold mt-[6rem] lg:mt-[8rem] pt-12 lg:pt-[200px] bg-white dark:bg-black contentDivLG pb-40 lg:pb-[204px]  rounded-2xl relative px-5 lg:pl-[80px] overflow-clip">
+        <div className="flex justify-center">
+          <div className="text-black font-commonsDemiBold mt-[4rem] lg:mt-[5.9rem] pt-12 lg:pt-[200px] bg-white dark:bg-black w-full h-screen pb-40 lg:pb-[204px] relative px-5 lg:pl-[80px] overflow-clip flex items-center">
             <video
               autoPlay
               muted
               loop
-              className="absolute top-0 left-0 right-0 bottom-0 w-full h-full object-cover z-0 p-1 rounded-2xl"
+              className="absolute top-0 bottom-0 left-0 right-0 z-0 object-cover w-full h-full"
             >
               <source src="/safe-logo.mp4" type="video/mp4" />
             </video>
@@ -353,19 +353,39 @@ export default function Home() {
             /> */}
             {/* <div className="w-[100px] h-[100px] bg-white dark:bg-black absolute -bottom-2 -right-1 z-[2]" /> */}
             <div className="relative z-[2] text-primary dark:text-white">
-              <p className="leading-[45px] lg:leading-[90px] text-[2.5rem] lg:text-[4.8rem] w-[200px] lg:w-[600px]">
+              <motion.p
+                variants={fadeInToUp}
+                initial="hidden"
+                whileInView="visible"
+                className="leading-[45px] lg:leading-[90px] text-[2.5rem] lg:text-[4.8rem] w-[200px] lg:w-[600px]"
+              >
                 Unlock Digital Asset Ownership
-              </p>
-              <p className="font-commonsRegular font-medium text-[1.4rem] lg:text-[1.4rem] mt-5 lg:mt-3 leading-5 lg:leading-7 lg:w-[500px]">
+              </motion.p>
+              <motion.p
+                variants={fadeInToUp}
+                initial="hidden"
+                whileInView="visible"
+                className="font-commonsRegular font-medium text-[1.4rem] lg:text-[1.4rem] mt-5 lg:mt-3 leading-5 lg:leading-7 lg:w-[500px]"
+              >
                 Safe is the most trusted decentralized custody protocol and
                 collective asset management platform on Ethereum and the EVM
-              </p>
-              <button className="bg-black rounded-md font-commonsDemiBold text-white py-5 lg:py-3 px-4 text-xl mt-11 mr-3">
+              </motion.p>
+              <motion.button
+                variants={fadeInToUp}
+                initial="hidden"
+                whileInView="visible"
+                className="px-4 pt-4 pb-3 mr-3 text-xl text-white bg-black rounded-md font-commonsDemiBold mt-11"
+              >
                 Build
-              </button>
-              <button className="dark:text-white bg-white dark:bg-black rounded-md font-commonsDemiBold text-black py-5 lg:py-3 px-4 text-xl mt-11">
+              </motion.button>
+              <motion.button
+                variants={fadeInToUp}
+                initial="hidden"
+                whileInView="visible"
+                className="px-4 pt-4 pb-3 text-xl text-black bg-white rounded-md dark:text-white dark:bg-black font-commonsDemiBold mt-11"
+              >
                 Launch Wallet
-              </button>
+              </motion.button>
             </div>
           </div>
         </div>
@@ -406,7 +426,7 @@ export default function Home() {
               variants={fadeInToUpImg}
               initial="hidden"
               whileInView="visible"
-              className="lg:w-1/2 flex justify-center items-center"
+              className="flex items-center justify-center lg:w-1/2"
             >
               <Image
                 src={EARN_HERO}
@@ -423,14 +443,14 @@ export default function Home() {
               variants={fadeInToUp}
               initial="hidden"
               whileInView="visible"
-              className="flex lg:flex-col items-center"
+              className="flex items-center lg:flex-col"
             >
               <Image
                 src={DAILY_YIELD}
                 alt="DAILY_YIELD"
                 className="w-[60px] h-[60px] lg:w-[80px] lg:h-[80px] my-3 lg:my-5 lg:mx-[156px]"
               />
-              <p className="ml-3 lg:ml-0 lg:mb-5 text-xl lg:text-3xl font-commonsDemiBold">
+              <p className="ml-3 text-xl lg:ml-0 lg:mb-5 lg:text-3xl font-commonsDemiBold">
                 Daily Yield Payouts
               </p>
             </motion.div>
@@ -438,14 +458,14 @@ export default function Home() {
               variants={fadeInToUp}
               initial="hidden"
               whileInView="visible"
-              className="flex lg:flex-col items-center"
+              className="flex items-center lg:flex-col"
             >
               <Image
                 src={COMPOUND_YIELD}
                 alt="COMPOUND_YIELD"
                 className="w-[60px] h-[60px] lg:w-[80px] lg:h-[80px] my-3 lg:my-5 lg:mx-[156px]"
               />
-              <p className="ml-3 lg:ml-0 lg:mb-5 text-xl lg:text-3xl font-commonsDemiBold">
+              <p className="ml-3 text-xl lg:ml-0 lg:mb-5 lg:text-3xl font-commonsDemiBold">
                 Compounded Yield
               </p>
             </motion.div>
@@ -453,14 +473,14 @@ export default function Home() {
               variants={fadeInToUp}
               initial="hidden"
               whileInView="visible"
-              className="flex lg:flex-col items-center"
+              className="flex items-center lg:flex-col"
             >
               <Image
                 src={REFUND}
                 alt="REFUND"
                 className="w-[60px] h-[60px] lg:w-[80px] lg:h-[80px] my-3 lg:my-5 lg:mx-[156px]"
               />
-              <p className="ml-3 lg:ml-0 lg:mb-5 text-xl lg:text-3xl font-commonsDemiBold">
+              <p className="ml-3 text-xl lg:ml-0 lg:mb-5 lg:text-3xl font-commonsDemiBold">
                 24 Hour Withdrawal
               </p>
             </motion.div>
@@ -493,7 +513,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex justify-center px-7 -mt-3 lg:mt-0">
+        <div className="flex justify-center -mt-3 px-7 lg:mt-0">
           <div className="flex flex-col-reverse lg:flex-row justify-center items-center gap-7 lg:gap-16 mb-[80px] lg:mb-[116px] lg:contentDivLG">
             <div>
               <motion.p
@@ -557,8 +577,8 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex justify-center graphLG px-7 pb-36 lg:pb-32">
-          <div className="flex flex-col-reverse lg:flex-row justify-between items-center gap-7 lg:gap-36 lg:contentDivLG lg:pb-20 pb-10">
+        <div className="flex justify-center pb-56 graphLG px-7">
+          <div className="flex flex-col-reverse items-center justify-between pb-10 lg:flex-row gap-7 lg:gap-36 lg:contentDivLG lg:pb-20">
             <div>
               <motion.p
                 variants={fadeInToUp}
@@ -581,7 +601,7 @@ export default function Home() {
                 Try CryptoDawg, a simple automated crypto trading app with
                 Hybrid Intelligence.
               </motion.p>
-              <div className="w-full flex justify-center items-center lg:w-fit">
+              <div className="flex items-center justify-center w-full lg:w-fit">
                 <motion.button
                   variants={fadeInToUp}
                   initial="hidden"
@@ -606,7 +626,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="mt-[116px] pb-[58px]">
+        <div className="mt-14 lg:mt-0 pb-[58px]">
           <p className="font-commonsDemiBold text-[2.5rem] lg:text-[4rem] text-center mb-8 lg:mb-4">
             Available on 12+ networks
           </p>
@@ -757,6 +777,8 @@ export default function Home() {
             and more, including testnets
           </p>
         </div>
+
+        {/* <div className="my-[116px]"></div> */}
       </main>
     </>
   );
