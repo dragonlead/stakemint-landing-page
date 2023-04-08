@@ -4,6 +4,8 @@ import YouTube from "react-youtube";
 import { Squash as Hamburger } from "hamburger-react";
 import { motion } from "framer-motion";
 import Marquee from "react-fast-marquee";
+import CountUp from "react-countup";
+import Collapsible from "react-collapsible";
 
 import SUN from "../assets/sun.svg";
 import MOON from "../assets/moon.svg";
@@ -28,6 +30,7 @@ import Ethereum from "../assets/EthereumLogo.png";
 import GnosisChain from "../assets/GnosisChainLogo.png";
 import Optimism from "../assets/OptimismLogo.png";
 import Polygon from "../assets/PolygonLogo.png";
+import EARN_W_USDC from "../assets/earn_w_usdc.jpg";
 
 export default function Home() {
   const router = useRouter();
@@ -92,6 +95,48 @@ export default function Home() {
       transition: {
         delay: 0.2,
         duration: 0.2,
+        ease: "easeInOut",
+      },
+    },
+  };
+
+  const fadeInValCon1 = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        delay: 0,
+        duration: 0.5,
+        ease: "easeInOut",
+      },
+    },
+  };
+
+  const fadeInValCon2 = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        delay: 1,
+        duration: 0.5,
+        ease: "easeInOut",
+      },
+    },
+  };
+
+  const fadeInValCon3 = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        delay: 2,
+        duration: 0.5,
         ease: "easeInOut",
       },
     },
@@ -223,7 +268,7 @@ export default function Home() {
                 variants={fadeInToUp}
                 initial="hidden"
                 whileInView="visible"
-                className="px-4 pt-2 pb-1 mx-8 bg-green-400 rounded-md font-commonsDemiBold"
+                className="px-4 pt-2 pb-1 ml-8 bg-green-400 rounded-md font-commonsDemiBold"
                 onClick={signIn}
               >
                 Sign In
@@ -232,7 +277,7 @@ export default function Home() {
                 variants={fadeInToUp}
                 initial="hidden"
                 whileInView="visible"
-                className="px-4 pt-2 pb-1 mr-8 bg-green-400 rounded-md font-commonsDemiBold"
+                className="px-4 pt-2 pb-1 mx-2 bg-green-400 rounded-md font-commonsDemiBold"
                 onClick={signUp}
               >
                 Sign Up
@@ -286,7 +331,7 @@ export default function Home() {
                   Careers
                 </li>
                 <li
-                  className="p-4 active:bg-gray-100 hover:cursor-pointer"
+                  className="px-4 pt-4 pb-2 active:bg-gray-100 hover:cursor-pointer"
                   onClick={handleNav}
                 >
                   <button
@@ -297,7 +342,7 @@ export default function Home() {
                   </button>
                 </li>
                 <li
-                  className="p-4 active:bg-gray-100 hover:cursor-pointer"
+                  className="px-4 pb-4 active:bg-gray-100 hover:cursor-pointer"
                   onClick={handleNav}
                 >
                   <button
@@ -416,7 +461,7 @@ export default function Home() {
                   variants={fadeInToUp}
                   initial="hidden"
                   whileInView="visible"
-                  className="bg-[#01c38d] rounded-md font-commonsDemiBold text-white pt-[2px] lg:py-1 px-2 text-[18px] lg:text-xl mt-[50px] lg:mt-[70px]"
+                  className="bg-[#01c38d] rounded-md font-commonsDemiBold text-white pt-2 pb-1 px-2 text-[18px] lg:text-xl mt-[50px] lg:mt-[70px]"
                 >
                   Notify Me
                 </motion.button>
@@ -778,7 +823,330 @@ export default function Home() {
           </p>
         </div>
 
-        {/* <div className="my-[116px]"></div> */}
+        <div className="flex justify-center px-7">
+          <div className="flex flex-col lg:flex-row justify-around my-[58px] mb-[58px] contentDivLG text-secondary dark:text-white font-commonsRegular gap-2 lg:gap-0">
+            <motion.div
+              variants={fadeInValCon1}
+              initial="hidden"
+              whileInView="visible"
+              className="flex items-center lg:flex-col"
+            >
+              <div className="text-[40px]">
+                <span>$</span>
+                <CountUp
+                  start={0.0}
+                  end={0.33}
+                  duration={1.2}
+                  decimals={2}
+                  delay={0}
+                  enableScrollSpy={true}
+                  scrollSpyDelay={0}
+                />
+                <span>B</span>
+              </div>
+              <p className="ml-3 text-base lg:ml-0 lg:mb-5 text-left lg:text-center text-primary dark:text-white">
+                Total value of assets
+                <br className="hidden lg:block" /> in Yield Wallets
+              </p>
+            </motion.div>
+            <motion.div
+              variants={fadeInValCon2}
+              initial="hidden"
+              whileInView="visible"
+              className="flex items-center lg:flex-col"
+            >
+              <CountUp
+                start={100000}
+                end={234938}
+                duration={0.9}
+                decimal=","
+                enableScrollSpy={true}
+                scrollSpyDelay={1000}
+                className="text-[40px]"
+              />
+              <p className="ml-3 text-sm lg:ml-0 lg:mb-5 text-left lg:text-center text-primary dark:text-white">
+                Total number of
+                <br className="hidden lg:block" /> active Yield Wallets
+              </p>
+            </motion.div>
+            <motion.div
+              variants={fadeInValCon3}
+              initial="hidden"
+              whileInView="visible"
+              className="flex items-center lg:flex-col"
+            >
+              <div className="text-[40px]">
+                <span>$</span>
+                <CountUp
+                  start={10.0}
+                  end={68.77}
+                  duration={0.9}
+                  decimals={2}
+                  enableScrollSpy={true}
+                  scrollSpyDelay={2000}
+                />
+                <span>M</span>
+              </div>
+              <p className="ml-3 text-sm lg:ml-0 lg:mb-5 text-left lg:text-center text-primary dark:text-white">
+                Total value earned
+                <br className="hidden lg:block" /> by users in crypto
+              </p>
+            </motion.div>
+          </div>
+        </div>
+
+        <div className="flex justify-center px-7">
+          <div className="flex flex-col lg:flex-row justify-center items-center gap-4 lg:gap-16 mb-[80px] lg:mb-[116px] lg:contentDivLG text-primary dark:text-white">
+            <div className="w-full lg:w-[500px]">
+              <motion.p
+                variants={fadeInToUp}
+                initial="hidden"
+                whileInView="visible"
+                className="leading-8 lg:leading-[50px] text-[1.9rem] lg:text-[2.3rem] lg:mt-[52px] font-commonsDemiBold"
+              >
+                Start earning now with SwissBorg Earn
+              </motion.p>
+              <motion.p
+                variants={fadeInToUp}
+                initial="hidden"
+                whileInView="visible"
+                className="font-commonsRegular text-[1.1rem] mt-3 leading-5 lg:leading-7"
+              >
+                1. &nbsp; Choose the asset and strategy that suits you.
+              </motion.p>
+              <motion.p
+                variants={fadeInToUp}
+                initial="hidden"
+                whileInView="visible"
+                className="font-commonsRegular text-[1.1rem] mt-3 leading-5 lg:leading-7 mr-0 lg:mr-28"
+              >
+                2. &nbsp; Enter the amount and accept the terms of use by
+                swiping the button.
+              </motion.p>
+              <motion.p
+                variants={fadeInToUp}
+                initial="hidden"
+                whileInView="visible"
+                className="font-commonsRegular text-[1.1rem] mt-3 leading-5 lg:leading-7 mr-0 lg:mr-24"
+              >
+                3. &nbsp; Check to see you&apos;ve entered the correct sum,
+                click top up and start earning.
+              </motion.p>
+              <div className="flex justify-center lg:justify-start">
+                <motion.button
+                  variants={fadeInToUp}
+                  initial="hidden"
+                  whileInView="visible"
+                  className="bg-[#01c38d] rounded-md font-commonsDemiBold text-white pt-2 pb-1 px-2 text-[18px] lg:text-xl mt-6"
+                >
+                  Notify Me
+                </motion.button>
+              </div>
+            </div>
+            <motion.div
+              variants={fadeInToUpImg}
+              initial="hidden"
+              whileInView="visible"
+            >
+              <Image
+                src={EARN_W_USDC}
+                alt="EARN_W_USDC"
+                className="my-4 rounded-3xl drop-shadow-xl"
+              />
+            </motion.div>
+          </div>
+        </div>
+
+        <div className="pb-[100px] px-7 flex flex-col lg:flex-row gap-10 lg:gap-[58px] justify-center text-primary dark:text-white">
+          <div className="w-[126px]">
+            <p className="font-commonsDemiBold text-3xl lg:text-5xl">FAQ</p>
+          </div>
+          <div>
+            <div className="relative w-full lg:w-[600px] overflow-hidden">
+              <input
+                type="checkbox"
+                className="peer absolute top-0 inset-x-0 w-full h-12 opacity-0 z-10 cursor-pointer"
+              />
+              <div className=" w-full flex items-center">
+                <p className="text-lg font-semibold mr-5 lg:mr-0 font-commonsDemiBold">
+                  How is CryptoDawg Earn different from Smart Yield?
+                </p>
+              </div>
+              <div className="absolute top-0 right-0 transition-transform duration-200 rotate-0 peer-checked:rotate-180">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                  />
+                </svg>
+              </div>
+              <div className="overflow-hidden transition-all duration-500 max-h-0 peer-checked:max-h-80">
+                <p className="font-commonsRegular text-lg pt-2 mr-6">
+                  While Smart Yield is a great product, its main challenge is
+                  that it’s a one-size-fits-all approach. Every investor has
+                  access to the same level of risk and the same level of yield,
+                  regardless of their risk profile and investing preferences.
+                  <br />
+                  With CryptoDawg Earn, instead of being offered one yielding
+                  option per asset, you will be able to choose from multiple
+                  strategies based on their risk level and projected yield.
+                </p>
+              </div>
+            </div>
+            <div className="my-5 w-full lg:w-[600px] h-[1px] bg-gray-400" />
+            <div className="relative w-full lg:w-[600px] overflow-hidden">
+              <input
+                type="checkbox"
+                className="peer absolute top-0 inset-x-0 w-full h-12 opacity-0 z-10 cursor-pointer"
+              />
+              <div className=" w-full flex items-center">
+                <p className="text-lg font-semibold mr-5 lg:mr-0 font-commonsDemiBold">
+                  How will I know the risk level of different strategies?
+                </p>
+              </div>
+              <div className="absolute top-0 right-0 transition-transform duration-200 rotate-0 peer-checked:rotate-180">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                  />
+                </svg>
+              </div>
+              <div className="overflow-hidden transition-all duration-500 max-h-0 peer-checked:max-h-60">
+                <p className="font-commonsRegular text-lg pt-2 mr-6">
+                  There will be a Cyborg mood score for every strategy, with
+                  ratings ranging from Core (low risk) to Brave (high risk).
+                  These risk ratings are based on both the crypto asset you are
+                  investing in as well as the protocol the strategy you choose
+                  will give access to.
+                </p>
+              </div>
+            </div>
+            <div className="my-5 w-full lg:w-[600px] h-[1px] bg-gray-400" />
+            <div className="relative w-full lg:w-[600px] overflow-hidden">
+              <input
+                type="checkbox"
+                className="peer absolute top-0 inset-x-0 w-full h-12 opacity-0 z-10 cursor-pointer"
+              />
+              <div className=" w-full flex items-center">
+                <p className="text-lg font-semibold mr-5 lg:mr-0 font-commonsDemiBold">
+                  Where can I learn more about different yielding strategies?
+                </p>
+              </div>
+              <div className="absolute top-0 right-0 transition-transform duration-200 rotate-0 peer-checked:rotate-180">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                  />
+                </svg>
+              </div>
+              <div className="overflow-hidden transition-all duration-500 max-h-0 peer-checked:max-h-60">
+                <p className="font-commonsRegular text-lg pt-2 mr-6">
+                  Each strategy has a ‘Learn more’ section where you can learn
+                  more about the protocol generating your yield.
+                </p>
+              </div>
+            </div>
+            <div className="my-5 w-full lg:w-[600px] h-[1px] bg-gray-400" />
+            <div className="relative w-full lg:w-[600px] overflow-hidden">
+              <input
+                type="checkbox"
+                className="peer absolute top-0 inset-x-0 w-full h-12 opacity-0 z-10 cursor-pointer"
+              />
+              <div className=" w-full flex items-center">
+                <p className="text-lg font-semibold mr-5 lg:mr-0 font-commonsDemiBold">
+                  Are the low-risk yielding strategies safe?
+                </p>
+              </div>
+              <div className="absolute top-0 right-0 transition-transform duration-200 rotate-0 peer-checked:rotate-180">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                  />
+                </svg>
+              </div>
+              <div className="overflow-hidden transition-all duration-500 max-h-0 peer-checked:max-h-60">
+                <p className="font-commonsRegular text-lg pt-2 mr-6">
+                  Every investment involves risk, and this should be taken into
+                  consideration before investing any funds. However, the Cyborg
+                  mood ratings indicate the level of risk compared to other
+                  strategies for generating crypto yields.
+                </p>
+              </div>
+            </div>
+            <div className="my-5 w-full lg:w-[600px] h-[1px] bg-gray-400" />
+            <div className="relative w-full lg:w-[600px] overflow-hidden">
+              <input
+                type="checkbox"
+                className="peer absolute top-0 inset-x-0 w-full h-12 opacity-0 z-10 cursor-pointer"
+              />
+              <div className=" w-full flex items-center">
+                <p className="text-lg font-semibold mr-5 lg:mr-0 font-commonsDemiBold">
+                  Is there a minimum investment period?
+                </p>
+              </div>
+              <div className="absolute top-0 right-0 transition-transform duration-200 rotate-0 peer-checked:rotate-180">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                  />
+                </svg>
+              </div>
+              <div className="overflow-hidden transition-all duration-500 max-h-0 peer-checked:max-h-60">
+                <p className="font-commonsRegular text-lg pt-2 mr-6">
+                  Most strategies only have a 24-hour lock-in period. Certain
+                  strategies might require you to lock your crypto for a longer
+                  period of time, though. If this is the case, it will be
+                  indicated in the app.
+                </p>
+              </div>
+            </div>
+            <div className="my-5 w-full lg:w-[600px] h-[1px] bg-gray-400" />
+          </div>
+        </div>
       </main>
     </>
   );
