@@ -52,7 +52,7 @@
 }
 
 .rcw-new-message {
-  width: calc(100% - 40px);
+  width: calc(100% - 40px) !important;
 }
 
 .rcw-conversation-container .rcw-header {
