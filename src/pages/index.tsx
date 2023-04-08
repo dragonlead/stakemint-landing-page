@@ -239,7 +239,7 @@ export default function Home() {
                 className="w-[35px] h-[40px] mr-[10px]"
               />
               <span className="text-[2.2rem] lg:text-[2.5rem] leading-[46px] font-commonsDemiBold mt-[10px]">
-                CryptoDawg
+                Stakemint
               </span>
             </motion.div>
 
@@ -445,7 +445,7 @@ export default function Home() {
                 className="leading-[45px] lg:leading-[90px] text-[2.5rem] lg:text-[4.8rem] lg:mt-[52px] font-commonsDemiBold text-center lg:text-left"
               >
                 {/* <p className="w-[560px] leading-[90px] text-[4.8rem] mt-[52px] font-commonsDemiBold"> */}
-                Earn crypto your way with CryptoDawg Earn
+                Earn crypto your way with Stakemint Earn
               </motion.p>
               <motion.p
                 variants={fadeInToUp}
@@ -454,7 +454,7 @@ export default function Home() {
                 className="font-commonsRegular text-[1.1rem] lg:text-[1.4rem] mt-5 lg:mt-3 leading-5 lg:leading-7 text-center lg:text-left"
               >
                 Investors aren’t one-size-fits-all, so why is your yield?
-                Generate the right yield for you with CryptoDawg Earn.
+                Generate the right yield for you with Stakemint Earn.
               </motion.p>
               <div className="flex justify-center lg:justify-start">
                 <motion.button
@@ -542,8 +542,7 @@ export default function Home() {
               whileInView="visible"
               className="font-commonsDemiBold w-full lg:w-[660px] text-[1.9rem] lg:text-[45px] text-left lg:text-center px-7 lg:px-0 leading-8 lg:leading-[50px]"
             >
-              The CryptoDawg app makes it easy for you to earn a yield every
-              day.
+              The Stakemint app makes it easy for you to earn a yield every day.
             </motion.p>
 
             <div className="rounded-xl overflow-clip -mt-[5rem] -mb-[5rem] lg:mb-0 lg:mt-[44px] scale-[.41] md:scale-[.6] lg:scale-100">
@@ -615,7 +614,7 @@ export default function Home() {
                 className="lg:w-[560px] font-commonsRegular text-[1.1rem] lg:text-[1.4rem] mt-3 leading-5 lg:leading-7"
               >
                 Investing isn’t just about managing risk, though - it’s about
-                balancing risk and returns. CryptoDawg Earn makes this simple
+                balancing risk and returns. Stakemint Earn makes this simple
                 with estimated annual yields visible at a glance.
               </motion.p>
             </div>
@@ -643,8 +642,8 @@ export default function Home() {
                 whileInView="visible"
                 className="lg:w-[560px] font-commonsRegular text-[1.5rem] lg:text-[1.4rem] mt-8 lg:mt-3 leading-7"
               >
-                Try CryptoDawg, a simple automated crypto trading app with
-                Hybrid Intelligence.
+                Try Stakemint, a simple automated crypto trading app with Hybrid
+                Intelligence.
               </motion.p>
               <div className="flex items-center justify-center w-full lg:w-fit">
                 <motion.button
@@ -969,7 +968,7 @@ export default function Home() {
               />
               <div className=" w-full flex items-center">
                 <p className="text-lg font-semibold mr-5 lg:mr-0 font-commonsDemiBold">
-                  How is CryptoDawg Earn different from Smart Yield?
+                  How is Stakemint Earn different from Smart Yield?
                 </p>
               </div>
               <div className="absolute top-0 right-0 transition-transform duration-200 rotate-0 peer-checked:rotate-180">
@@ -995,7 +994,7 @@ export default function Home() {
                   access to the same level of risk and the same level of yield,
                   regardless of their risk profile and investing preferences.
                   <br />
-                  With CryptoDawg Earn, instead of being offered one yielding
+                  With Stakemint Earn, instead of being offered one yielding
                   option per asset, you will be able to choose from multiple
                   strategies based on their risk level and projected yield.
                 </p>

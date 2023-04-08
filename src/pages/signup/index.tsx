@@ -2,6 +2,8 @@ import Image from "next/image";
 import LOGO from "../../assets/swissborg-logo.png";
 import { useRouter } from "next/router";
 import Header from "../components/Header";
+import { Widget } from "react-chat-widget";
+import "react-chat-widget/lib/styles.css";
 
 export default function SignUp() {
   const router = useRouter();
@@ -14,6 +16,11 @@ export default function SignUp() {
   const homePage = (e: any) => {
     e.preventDefault();
     router.push("/");
+  };
+
+  const handleNewUserMessage = (newMessage: any) => {
+    console.log(`New message incoming! ${newMessage}`);
+    // Now send the message throught the backend API
   };
 
   return (
@@ -31,13 +38,13 @@ export default function SignUp() {
               className="w-[35px] h-[40px] mr-[10px]"
             />
             <span className="text-[2.5rem] leading-[46px] font-commonsDemiBold mt-[10px]">
-              CryptoDawg
+              Stakemint
             </span>
           </div>
         </div>
         <div className="w-full lg:w-[58.5%] p-4 lg:p-[46px]">
           <p className="font-commonsDemiBold text-[32px] lg:text-6xl pt-[10px]">
-            Welcome to CryptoDawg
+            Welcome to Stakemint
           </p>
           <p className="font-commonsRegular text-[20px] lg:text-[22px] mt-[14px] mb-[47px]">
             We&apos;re excited to have you on board. Let&apos;s get started by
@@ -47,37 +54,41 @@ export default function SignUp() {
             <div className="flex flex-col gap-4">
               <div className="relative font-commonsRegular">
                 <input
+                  required
                   type="text"
                   className="w-full lg:w-[358px] h-[51px] outline-none border-[#c4c4c4] border-[1px] rounded-md px-4 hover:border-black focus:border-blue-500 focus:border-2"
                 />
-                <p className="absolute -top-2 left-4 bg-white px-1 text-sm">
+                <p className="absolute px-1 text-sm bg-white -top-2 left-4">
                   First Name*
                 </p>
               </div>
               <div className="relative font-commonsRegular">
                 <input
+                  required
                   type="text"
                   className="w-full lg:w-[358px] h-[51px] outline-none border-[#c4c4c4] border-[1px] rounded-md px-4 hover:border-black focus:border-blue-500 focus:border-2"
                 />
-                <p className="absolute -top-2 left-4 bg-white px-1 text-sm">
+                <p className="absolute px-1 text-sm bg-white -top-2 left-4">
                   Last Name*
                 </p>
               </div>
               <div className="relative font-commonsRegular">
                 <input
+                  required
                   type="email"
                   className="w-full lg:w-[358px] h-[51px] outline-none border-[#c4c4c4] border-[1px] rounded-md px-4 hover:border-black focus:border-blue-500 focus:border-2"
                 />
-                <p className="absolute -top-2 left-4 bg-white px-1 text-sm">
+                <p className="absolute px-1 text-sm bg-white -top-2 left-4">
                   Email*
                 </p>
               </div>
               <div className="relative font-commonsRegular">
                 <input
+                  required
                   type="password"
                   className="w-full lg:w-[358px] h-[51px] outline-none border-[#c4c4c4] border-[1px] rounded-md px-4 hover:border-black focus:border-blue-500 focus:border-2"
                 />
-                <p className="absolute -top-2 left-4 bg-white px-1 text-sm">
+                <p className="absolute px-1 text-sm bg-white -top-2 left-4">
                   Password*
                 </p>
               </div>
@@ -88,10 +99,10 @@ export default function SignUp() {
               />
             </div>
           </form>
-          <div className="font-commonsRegular flex text-lg mt-6">
+          <div className="flex mt-6 text-lg font-commonsRegular">
             <p>Already have an account?</p>{" "}
             <button
-              className="hover:underline text-blue-500 font-commonsDemiBold ml-1"
+              className="ml-1 text-blue-500 hover:underline font-commonsDemiBold"
               onClick={signIn}
             >
               Sign In
@@ -121,10 +132,15 @@ export default function SignUp() {
               does not render investment, financial, legal or accounting advice.
             </p>
             <p className="mt-7">
-              © {new Date().getFullYear()} CryptoDawg. All Rights Reserved.
+              © {new Date().getFullYear()} Stakemint. All Rights Reserved.
             </p>
           </div>
         </div>
+        <Widget
+          handleNewUserMessage={handleNewUserMessage}
+          title="Stakemint Support"
+          subtitle=""
+        />
       </main>
     </>
   );

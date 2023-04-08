@@ -31,3 +31,30 @@
 .contentDivLG {
   width: 1180px;
 }
+
+.rcw-open-launcher {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.rcw-close-launcher {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.rcw-sender {
+  align-items: center !important;
+  gap: 10px;
+}
+
+.rcw-picker-btn {
+  display: none;
+}
+
+.rcw-new-message {
+  width: calc(100% - 40px);
+}
+
+.rcw-conversation-container .rcw-header {
+  padding: 0px !important;
+}
