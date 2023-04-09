@@ -2,8 +2,8 @@ import Image from "next/image";
 import LOGO from "../../assets/swissborg-logo.png";
 import { useRouter } from "next/router";
 import Header from "../components/Header";
-import { Widget } from "react-chat-widget";
-import "react-chat-widget/lib/styles.css";
+// import { Widget } from "react-chat-widget";
+// import "react-chat-widget/lib/styles.css";
 
 export default function SignUp() {
   const router = useRouter();
@@ -136,11 +136,11 @@ export default function SignUp() {
             </p>
           </div>
         </div>
-        <Widget
+        {/* <Widget
           handleNewUserMessage={handleNewUserMessage}
           title="Stakemint Support"
           subtitle=""
-        />
+        /> */}
       </main>
     </>
   );
