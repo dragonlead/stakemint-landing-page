@@ -4,12 +4,12 @@
 
 @font-face {
   font-family: "Commons-Regular";
-  src: url("../fonts/tt-commons-regular.ttf");
+  src: url("../fonts/SF-Pro-Text-Regular.otf");
 }
 
 @font-face {
   font-family: "Commons-DemiBold";
-  src: url("../fonts/tt-commons-demibold.ttf");
+  src: url("../fonts/SF-Pro-Text-Semibold.otf");
 }
 
 .graphLG {

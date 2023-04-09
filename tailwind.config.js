@@ -12,8 +12,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#191e29",
-        secondary: "#01c38d",
+        primary: "#000000",
+        secondary: "#000000",
         myToggle: "#4ED938",
       },
       backgroundImage: {

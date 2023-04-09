@@ -247,7 +247,7 @@ export default function Home() {
                 alt="LOGO"
                 className="w-[35px] h-[40px] mr-[10px]"
               />
-              <span className="text-[2.2rem] lg:text-[2.5rem] leading-[46px] font-commonsDemiBold mt-[10px]">
+              <span className="text-[2.2rem] lg:text-[2.5rem] leading-[46px] font-commonsDemiBold">
                 Stakemint
               </span>
             </motion.div>
@@ -266,7 +266,7 @@ export default function Home() {
                 variants={fadeInToUp}
                 initial="hidden"
                 whileInView="visible"
-                className="flex gap-8 pt-1 text-lg font-commonsDemiBold"
+                className="flex gap-8 text-lg font-commonsDemiBold"
               >
                 <li className="hover:cursor-pointer">Home</li>
                 <li className="hover:cursor-pointer">Core</li>
@@ -277,7 +277,7 @@ export default function Home() {
                 variants={fadeInToUp}
                 initial="hidden"
                 whileInView="visible"
-                className="px-4 pt-2 pb-1 ml-8 bg-green-400 rounded-md font-commonsDemiBold"
+                className="px-4 py-1 ml-8 bg-green-400 rounded-md font-commonsDemiBold"
                 onClick={signIn}
               >
                 Sign In
@@ -286,7 +286,7 @@ export default function Home() {
                 variants={fadeInToUp}
                 initial="hidden"
                 whileInView="visible"
-                className="px-4 pt-2 pb-1 mx-2 bg-green-400 rounded-md font-commonsDemiBold"
+                className="px-4 py-1 mx-2 bg-green-400 rounded-md font-commonsDemiBold"
                 onClick={signUp}
               >
                 Sign Up
@@ -344,7 +344,7 @@ export default function Home() {
                   onClick={handleNav}
                 >
                   <button
-                    className="px-4 pt-2 pb-1 bg-green-400 rounded-md font-commonsDemiBold"
+                    className="px-4 py-1 bg-green-400 rounded-md font-commonsDemiBold"
                     onClick={signIn}
                   >
                     Sign In
@@ -355,7 +355,7 @@ export default function Home() {
                   onClick={handleNav}
                 >
                   <button
-                    className="px-4 pt-2 pb-1 bg-green-400 rounded-md font-commonsDemiBold"
+                    className="px-4 py-1 bg-green-400 rounded-md font-commonsDemiBold"
                     onClick={signUp}
                   >
                     Sign Up
@@ -391,7 +391,7 @@ export default function Home() {
         </div>
 
         <div className="flex justify-center">
-          <div className="text-black font-commonsDemiBold mt-[4rem] lg:mt-[5.9rem] pt-12 lg:pt-[200px] bg-white dark:bg-black w-full h-screen pb-40 lg:pb-[204px] relative px-5 lg:pl-[80px] overflow-clip flex items-center">
+          <div className="text-black font-commonsDemiBold mt-[3.5rem] lg:mt-[5rem] pt-12 lg:pt-[200px] bg-white dark:bg-black w-full h-screen pb-40 lg:pb-[204px] relative px-5 lg:pl-[80px] overflow-clip flex items-center">
             <video
               autoPlay
               muted
@@ -428,7 +428,7 @@ export default function Home() {
                 variants={fadeInToUp}
                 initial="hidden"
                 whileInView="visible"
-                className="px-4 pt-4 pb-3 mr-3 text-xl text-white bg-black rounded-md font-commonsDemiBold mt-11"
+                className="px-4 py-3 mr-3 text-xl text-white bg-black rounded-md font-commonsDemiBold mt-11"
               >
                 Build
               </motion.button>
@@ -436,7 +436,7 @@ export default function Home() {
                 variants={fadeInToUp}
                 initial="hidden"
                 whileInView="visible"
-                className="px-4 pt-4 pb-3 text-xl text-black bg-white rounded-md dark:text-white dark:bg-black font-commonsDemiBold mt-11"
+                className="px-4 py-3 text-xl text-black bg-white rounded-md dark:text-white dark:bg-black font-commonsDemiBold mt-11"
               >
                 Launch Wallet
               </motion.button>
@@ -451,7 +451,7 @@ export default function Home() {
                 variants={fadeInToUp}
                 initial="hidden"
                 whileInView="visible"
-                className="leading-[45px] lg:leading-[90px] text-[2.5rem] lg:text-[4.8rem] lg:mt-[52px] font-commonsDemiBold text-center lg:text-left"
+                className="leading-[45px] lg:leading-[90px] text-[2.5rem] lg:text-[4.5rem] lg:mt-[52px] font-commonsDemiBold text-center lg:text-left"
               >
                 {/* <p className="w-[560px] leading-[90px] text-[4.8rem] mt-[52px] font-commonsDemiBold"> */}
                 Earn crypto your way with Stakemint Earn
@@ -470,7 +470,7 @@ export default function Home() {
                   variants={fadeInToUp}
                   initial="hidden"
                   whileInView="visible"
-                  className="bg-[#01c38d] rounded-md font-commonsDemiBold text-white pt-2 pb-1 px-2 text-[18px] lg:text-xl mt-[50px] lg:mt-[70px]"
+                  className="bg-[#01c38d] rounded-md font-commonsDemiBold text-white py-1 px-2 text-[18px] lg:text-xl mt-[50px] lg:mt-[70px]"
                 >
                   Notify Me
                 </motion.button>
@@ -593,7 +593,7 @@ export default function Home() {
               initial="hidden"
               whileInView="visible"
             >
-              <Image src={MOOD} alt="MOOD" className="w-[650px]" />
+              <Image src={MOOD} alt="MOOD" className="w-[555px]" />
             </motion.div>
           </div>
         </div>
@@ -605,7 +605,7 @@ export default function Home() {
               initial="hidden"
               whileInView="visible"
             >
-              <Image src={APY} alt="APY" className="w-[650px]" />
+              <Image src={APY} alt="APY" className="w-[555px]" />
             </motion.div>
             <div>
               <motion.p
@@ -679,7 +679,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="mt-14 lg:mt-0 pb-[58px]">
+        <div className="mt-14 lg:mt-0 py-[58px]">
           <p className="font-commonsDemiBold text-[2.5rem] lg:text-[4rem] text-center mb-8 lg:mb-4">
             Available on 12+ networks
           </p>
@@ -945,7 +945,7 @@ export default function Home() {
                   variants={fadeInToUp}
                   initial="hidden"
                   whileInView="visible"
-                  className="bg-[#01c38d] rounded-md font-commonsDemiBold text-white pt-2 pb-1 px-2 text-[18px] lg:text-xl mt-6"
+                  className="bg-[#01c38d] rounded-md font-commonsDemiBold text-white py-1 px-2 text-[18px] lg:text-xl mt-6"
                 >
                   Notify Me
                 </motion.button>
@@ -1364,10 +1364,10 @@ export default function Home() {
         <div className="flex justify-center px-7 pb-[58px] lg:py-[58px] bg-[#f6f7f8] dark:bg-black">
           <div className="flex flex-col lg:flex-row gap-5 contentDivLG text-white">
             <div className="w-full px-5 lg:px-0 lg:w-1/2 bg-[#03c793] py-10 rounded-xl flex flex-col gap-3 justify-center items-start lg:items-center">
-              <p className="font-commonsDemiBold text-[23px] lg:text-3xl">
+              <p className="font-commonsDemiBold text-[19px] lg:text-[26px]">
                 Subscribe to our newsletter
               </p>
-              <p className="font-commonsRegular text-[17px] lg:text-[23px]">
+              <p className="font-commonsRegular text-[15px] lg:text-[21px]">
                 Receive official updates when you join our mailing list
               </p>
               <form action="" className="w-full">
@@ -1413,10 +1413,10 @@ export default function Home() {
               </form>
             </div>
             <div className="w-full px-5 lg:w-1/2 bg-[#6145ff] py-10 rounded-xl flex flex-col gap-3 justify-center items-start lg:items-center">
-              <p className="font-commonsDemiBold text-2xl lg:text-3xl">
+              <p className="font-commonsDemiBold text-[19px] lg:text-[26px]">
                 Be part of our growing global community
               </p>
-              <p className="font-commonsRegular text-[17px] lg:text-[23px]">
+              <p className="font-commonsRegular text-[15px] lg:text-[21px]">
                 Follow and subscribe to our channels
               </p>
               <div className="flex flex-wrap gap-[20px]">
@@ -1514,8 +1514,10 @@ export default function Home() {
                 </Link>
                 <Link href="#">Cookies Policy</Link>
               </div>
-              <div>
-                <p>© SBorg SA. All Rights Reserved.</p>
+              <div className="w-full lg:w-[23%]">
+                <p className="text-sm text-left">
+                  © SBorg SA. All Rights Reserved.
+                </p>
               </div>
             </div>
           </div>
