@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Assets/Crypto/eth</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#9BB5F6" offset="0%"></stop>
+            <stop stop-color="#627EEA" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Assets/Crypto/eth" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(1.000000, 0.000000)">
+            <path d="M20.6800305,18.9655351 C21.4060645,18.5550661 22,17.5475512 22,16.7266131 L22,7.27338689 C22,6.45244882 21.4060645,5.44493392 20.6800305,5.03446489 L12.3199695,0.307851775 C11.5939355,-0.102617258 10.4060645,-0.102617258 9.68003048,0.307851775 L1.31996952,5.03446489 C0.593935475,5.44493392 0,6.45244882 0,7.27338689 L0,16.7266131 C0,17.5475512 0.593935475,18.5550661 1.31996952,18.9655351 L9.68003048,23.6921482 C10.4060645,24.1026173 11.5939355,24.1026173 12.3199695,23.6921482 L20.6800305,18.9655351 Z" id="Stroke-3" fill="url(#linearGradient-1)"></path>
+            <polygon id="Shape" fill-opacity="0.602" fill="#FFFFFF" fill-rule="nonzero" points="10.99872 4.8 10.99872 10.122 15.7968 12.132"></polygon>
+            <polygon id="Shape" fill="#FFFFFF" fill-rule="nonzero" points="10.99872 4.8 6.2 12.132 10.99872 10.122"></polygon>
+            <polygon id="Shape" fill-opacity="0.602" fill="#FFFFFF" fill-rule="nonzero" points="10.99872 15.5808 10.99872 19.197 15.8 12.9696"></polygon>
+            <polygon id="Shape" fill="#FFFFFF" fill-rule="nonzero" points="10.99872 19.197 10.99872 15.5802 6.2 12.9696"></polygon>
+            <polygon id="Shape" fill-opacity="0.2" fill="#FFFFFF" fill-rule="nonzero" points="10.99872 14.7438 15.7968 12.132 10.99872 10.1232"></polygon>
+            <polygon id="Shape" fill-opacity="0.602" fill="#FFFFFF" fill-rule="nonzero" points="6.2 12.132 10.99872 14.7438 10.99872 10.1232"></polygon>
+        </g>
+    </g>
+</svg>
