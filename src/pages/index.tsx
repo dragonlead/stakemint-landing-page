@@ -226,8 +226,6 @@ export default function Home() {
   // onWindowsMatch();
 
   useEffect(() => {
-    console.log(theme);
-    console.log(isLight);
     const element = document.documentElement;
     switch (theme) {
       case "dark":
