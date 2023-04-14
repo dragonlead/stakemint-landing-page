@@ -88,7 +88,7 @@ function Navbar() {
         // setGradientValue(255);
         break;
     }
-  }, [theme]);
+  }, [theme, isLight]);
 
   return (
     <div className="fixed z-50 flex justify-center w-full bg-white dark:bg-black drop-shadow-md px-7">

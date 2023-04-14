@@ -22,8 +22,8 @@ const DailyRateSec = () => {
       </p>
       <div className="flex justify-end w-full lg:w-[920px] gap-2 font-commonsDemiBold relative">
         <div className="bg-white w-[200px] ml-9 rounded-xl shadow-xl flex flex-col lg:mt-[108px] absolute -left-9 bottom-8 z-10 text-primary pl-3">
-          {networks.map((net, key) => (
-            <div key={key} className="h-[50px] flex items-center">
+          {networks.map((net, index) => (
+            <div key={index} className="h-[50px] flex items-center">
               <Image
                 src={net.netLogo}
                 alt={net.netName}
@@ -89,7 +89,7 @@ const DailyRateSec = () => {
             />
           </div>
           {networks.map((net, index) => (
-            <div className="flex gap-4">
+            <div key={index} className="flex gap-4">
               <TableBodyItem
                 color="text-[#9aa1ab]"
                 item={net.standard}

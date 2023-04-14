@@ -49,7 +49,7 @@ export default function Home() {
         setGradientValue(255);
         break;
     }
-  }, [theme]);
+  }, [theme, isLight]);
 
   return (
     <>
