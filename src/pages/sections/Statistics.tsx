@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import CountUp from "react-countup/build/CountUp";
+import CountUp from "react-countup";
 
 function Statistics() {
   const fadeInValCon1 = {
