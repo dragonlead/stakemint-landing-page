@@ -27,7 +27,15 @@ export default function SignUp() {
     <>
       <Header />
       <main className="flex flex-col lg:flex-row text-primary">
-        <div className="w-full lg:w-[35%] bg-[#e3edff]">
+        <video
+          autoPlay
+          muted
+          loop
+          className="absolute top-0 bottom-0 left-0 right-0 z-0 object-cover w-full h-full"
+        >
+          <source src="/safe-logo.mp4" type="video/mp4" />
+        </video>
+        <div className="relative z-[2] w-full lg:w-[35%] bg-[#e3edff]">
           <div
             className="flex items-center m-[30px] hover:cursor-pointer"
             onClick={homePage}
@@ -42,7 +50,7 @@ export default function SignUp() {
             </span>
           </div>
         </div>
-        <div className="w-full lg:w-[58.5%] p-4 lg:p-[46px]">
+        <div className="relative z-[2] w-full lg:w-[58.5%] p-4 lg:p-[46px]">
           <p className="font-commonsDemiBold text-[32px] lg:text-6xl pt-[10px]">
             Welcome to Stakemint
           </p>

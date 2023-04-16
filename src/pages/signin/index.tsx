@@ -14,8 +14,16 @@ export default function SignIn() {
   return (
     <>
       <Header />
-      <main className="lg:bg-[#414259] w-full h-full lg:h-screen lg:flex justify-center items-center text-primary">
-        <div className="bg-white rounded-md p-[40px] lg:flex flex-col gap-[24px]">
+      <main className="lg:bg-[#414259] w-full h-screen flex justify-center items-center text-primary">
+        <video
+          autoPlay
+          muted
+          loop
+          className="absolute top-0 bottom-0 left-0 right-0 z-0 object-cover w-full h-full"
+        >
+          <source src="/safe-logo.mp4" type="video/mp4" />
+        </video>
+        <div className="relative z-[2] bg-white rounded-md m-5 sm:m-0 p-[40px] lg:flex flex-col gap-[24px]">
           <div
             className="flex items-center justify-center hover:cursor-pointer"
             onClick={homePage}
