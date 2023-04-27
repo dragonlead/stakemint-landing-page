@@ -9,42 +9,31 @@ const NetworksSec = () => {
       <p className="font-commonsDemiBold text-[2.5rem] lg:text-[4rem] text-center mb-8 lg:mb-4">
         Available on 12+ networks
       </p>
-      <Marquee
-        direction="left"
-        speed={25}
-        className="mb-6"
-        gradientWidth={100}
-        gradientColor={[255, 255, 255]}
-      >
+      <Marquee direction="left" speed={25} className="mb-6" gradientWidth={100} gradientColor={[255, 255, 255]}>
         {networks.map((net, index) => (
           <NetworksItem
+            key={index}
             logoColor={net.logoColor}
             logoName={net.logoName}
             logoPath={net.logoPath}
             logoBG={net.logoBG}
-            key={index}
+            keyValue={index}
           />
         ))}
       </Marquee>
-      <Marquee
-        direction="right"
-        speed={25}
-        gradientWidth={100}
-        gradientColor={[255, 255, 255]}
-      >
+      <Marquee direction="right" speed={25} gradientWidth={100} gradientColor={[255, 255, 255]}>
         {networks.map((net, index) => (
           <NetworksItem
+            key={index}
             logoColor={net.logoColor}
             logoName={net.logoName}
             logoPath={net.logoPath}
             logoBG={net.logoBG}
-            key={index}
+            keyValue={index}
           />
         ))}
       </Marquee>
-      <p className="text-[#a1a3a7] font-commonsRegular text-center text-xl mt-8">
-        and more, including testnets
-      </p>
+      <p className="text-[#a1a3a7] font-commonsRegular text-center text-xl mt-8">and more, including testnets</p>
     </div>
   );
 };

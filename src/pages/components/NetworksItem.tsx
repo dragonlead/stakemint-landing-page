@@ -3,7 +3,7 @@ import { NextPage } from "next";
 import Image, { StaticImageData } from "next/image";
 
 interface Props {
-  key?: number;
+  keyValue?: number;
   logoName: string;
   logoBG: string;
   logoPath: StaticImageData;
@@ -11,10 +11,10 @@ interface Props {
 }
 
 const NetworksItem: NextPage<Props> = (props) => {
-  let { logoName, logoBG, logoPath, logoColor, key } = props;
+  let { logoName, logoBG, logoPath, logoColor, keyValue } = props;
   return (
     <div
-      key={key}
+      key={keyValue}
       className={`font-commonsDemiBold flex items-center justify-center ${logoBG} rounded-full py-2 px-3 mr-2`}
     >
       <Image src={logoPath} alt={logoName} className="w-[40px] h-[40px] mr-2" />

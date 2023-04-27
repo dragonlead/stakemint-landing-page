@@ -7,14 +7,14 @@ interface Props {
   src: StaticImageData;
   alt: string;
   tierName: string;
-  key: number;
+  keyValue: number;
 }
 
 const TableHeaderItem: NextPage<Props> = (props) => {
-  let { bgColor, src, alt, tierName, key } = props;
+  let { bgColor, src, alt, tierName, keyValue } = props;
   return (
     <div
-      key={key}
+      key={keyValue}
       className={`flex justify-center items-center flex-col ${bgColor} min-h-[100px] min-w-[100px] rounded-xl`}
     >
       <Image src={src} alt={alt} />

@@ -4,13 +4,13 @@ import { NextPage } from "next";
 interface Props {
   color: string;
   item: number;
-  key: number;
+  keyValue: number;
 }
 
 const TableBodyItem: NextPage<Props> = (props) => {
-  let { color, item, key } = props;
+  let { color, item, keyValue } = props;
   return (
-    <div className={`min-w-[100px] bg-white shadow-xl ${color}`} key={key}>
+    <div className={`min-w-[100px] bg-white shadow-xl ${color}`} key={keyValue}>
       <div className="h-[50px] flex justify-center items-center">
         <p>{item}%</p>
       </div>
