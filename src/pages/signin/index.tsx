@@ -6,9 +6,11 @@ import { useRouter } from "next/router";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { login } from "@/api/auth";
+import { useNProgress } from "@/hooks/useNProgress";
 
 export default function SignIn() {
   const router = useRouter();
+  const [handleStart, handleDone] = useNProgress();
 
   const homePage = (e: any) => {
     e.preventDefault();
@@ -17,8 +19,8 @@ export default function SignIn() {
 
   const formik = useFormik({
     initialValues: {
-      email: "demo@stakemint.io",
-      password: "auto_ixeds",
+      email: "",
+      password: "",
       submit: null,
     },
     validationSchema: Yup.object({
@@ -26,6 +28,7 @@ export default function SignIn() {
       password: Yup.string().max(255).required("Password is required"),
     }),
     onSubmit: async (values, helpers) => {
+      handleStart();
       try {
         const response = await login(values.email, values.password);
         router.push("/");
@@ -36,6 +39,7 @@ export default function SignIn() {
         helpers.setErrors({ submit: err.message || err });
         helpers.setSubmitting(false);
       }
+      handleDone();
     },
   });
 
