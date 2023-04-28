@@ -8,11 +8,15 @@ import { useEffect, useState } from "react";
 import LOGO from "../../assets/swissborg-logo.png";
 import SUN from "../../assets/sun.svg";
 import MOON from "../../assets/moon.svg";
+import { useAuth } from "@/hooks/useAuth";
+import Link from "next/link";
 
 function Navbar() {
   const router = useRouter();
+  const [accessToken, refreshToken] = useAuth();
 
   const [nav, setNav] = useState(false);
+
   const handleNav = () => {
     setNav(!nav);
   };
@@ -38,11 +42,6 @@ function Navbar() {
     router.push("/");
   };
 
-  const signUp = (e: any) => {
-    e.preventDefault();
-    router.push("/signup");
-  };
-
   const signIn = (e: any) => {
     e.preventDefault();
     router.push("/signin");
@@ -66,8 +65,6 @@ function Navbar() {
   };
 
   useEffect(() => {
-    console.log(theme);
-    console.log(isLight);
     const element = document.documentElement;
     switch (theme) {
       case "dark":
@@ -100,14 +97,8 @@ function Navbar() {
           className="flex items-center hover:cursor-pointer"
           onClick={goHomePage}
         >
-          <Image
-            src={LOGO}
-            alt="LOGO"
-            className="w-[35px] h-[40px] mr-[10px]"
-          />
-          <span className="text-[2.2rem] lg:text-[2.5rem] leading-[46px] font-commonsDemiBold">
-            Stakemint
-          </span>
+          <Image src={LOGO} alt="LOGO" className="w-[35px] h-[40px] mr-[10px]" />
+          <span className="text-[2.2rem] lg:text-[2.5rem] leading-[46px] font-commonsDemiBold">Stakemint</span>
         </motion.div>
 
         <div className="block -mr-3 lg:hidden">
@@ -126,24 +117,29 @@ function Navbar() {
             <li className="hover:cursor-pointer">Wallet</li>
             <li className="hover:cursor-pointer">Careers</li>
           </motion.ul>
-          <motion.button
-            variants={fadeInToUp}
-            initial="hidden"
-            whileInView="visible"
-            className="px-4 py-1 ml-8 bg-green-400 rounded-md font-commonsDemiBold"
-            onClick={signIn}
-          >
-            Sign In
-          </motion.button>
-          <motion.button
-            variants={fadeInToUp}
-            initial="hidden"
-            whileInView="visible"
-            className="px-4 py-1 mx-2 bg-green-400 rounded-md font-commonsDemiBold"
-            onClick={signUp}
-          >
-            Sign Up
-          </motion.button>
+          {accessToken ? (
+            <motion.button
+              variants={fadeInToUp}
+              initial="hidden"
+              whileInView="visible"
+              className="px-4 py-1 ml-8 bg-green-400 rounded-md font-commonsDemiBold"
+              onClick={signIn}
+            >
+              Sign In/Sign Up
+            </motion.button>
+          ) : null}
+          <Link href="https://app-stakemint.netlify.com" passHref legacyBehavior>
+            <a target="_blank" rel="noopener noreferrer">
+              <motion.button
+                variants={fadeInToUp}
+                initial="hidden"
+                whileInView="visible"
+                className="px-4 py-1 mx-2 bg-green-400 rounded-md font-commonsDemiBold"
+              >
+                LAUNCH APP
+              </motion.button>
+            </a>
+          </Link>
           <motion.div
             variants={fadeInToUp}
             initial="hidden"
@@ -151,12 +147,8 @@ function Navbar() {
             className="relative hidden rounded-md cursor-pointer lg:flex bg-slate-300 dark:bg-gray-800"
             onClick={() => setThemeToggle(!isLight)}
           >
-            {theme == "dark" && (
-              <Image src={MOON} alt="MOON" className="py-[8px] w-10 h-10" />
-            )}
-            {theme == "light" && (
-              <Image src={SUN} alt="SUN" className="py-[8px] w-10 h-10" />
-            )}
+            {theme == "dark" && <Image src={MOON} alt="MOON" className="py-[8px] w-10 h-10" />}
+            {theme == "light" && <Image src={SUN} alt="SUN" className="py-[8px] w-10 h-10" />}
           </motion.div>
         </div>
 
@@ -168,51 +160,31 @@ function Navbar() {
           }
         >
           <ul className="p-4 text-primary dark:text-white font-commonsDemiBold">
-            <li
-              className="p-4 active:bg-gray-100 hover:cursor-pointer"
-              onClick={handleNav}
-            >
+            <li className="p-4 active:bg-gray-100 hover:cursor-pointer" onClick={handleNav}>
               Home
             </li>
-            <li
-              className="p-4 active:bg-gray-100 hover:cursor-pointer"
-              onClick={handleNav}
-            >
+            <li className="p-4 active:bg-gray-100 hover:cursor-pointer" onClick={handleNav}>
               Core
             </li>
-            <li
-              className="p-4 active:bg-gray-100 hover:cursor-pointer"
-              onClick={handleNav}
-            >
+            <li className="p-4 active:bg-gray-100 hover:cursor-pointer" onClick={handleNav}>
               Wallet
             </li>
-            <li
-              className="p-4 active:bg-gray-100 hover:cursor-pointer"
-              onClick={handleNav}
-            >
+            <li className="p-4 active:bg-gray-100 hover:cursor-pointer" onClick={handleNav}>
               Careers
             </li>
-            <li
-              className="px-4 pt-4 pb-2 active:bg-gray-100 hover:cursor-pointer"
-              onClick={handleNav}
-            >
-              <button
-                className="px-4 py-1 bg-green-400 rounded-md font-commonsDemiBold"
-                onClick={signIn}
-              >
-                Sign In
-              </button>
-            </li>
-            <li
-              className="px-4 pb-4 active:bg-gray-100 hover:cursor-pointer"
-              onClick={handleNav}
-            >
-              <button
-                className="px-4 py-1 bg-green-400 rounded-md font-commonsDemiBold"
-                onClick={signUp}
-              >
-                Sign Up
-              </button>
+            {accessToken ? (
+              <li className="px-4 pt-4 pb-2 active:bg-gray-100 hover:cursor-pointer" onClick={handleNav}>
+                <button className="px-4 py-1 bg-green-400 rounded-md font-commonsDemiBold" onClick={signIn}>
+                  Sign In/Sign Up
+                </button>
+              </li>
+            ) : null}
+            <li className="px-4 pb-4 active:bg-gray-100 hover:cursor-pointer" onClick={handleNav}>
+              <Link href="https://app-stakemint.netlify.com" passHref legacyBehavior>
+                <a target="_blank" rel="noopener noreferrer">
+                  <button className="px-4 py-1 bg-green-400 rounded-md font-commonsDemiBold">LAUNCH APP</button>
+                </a>
+              </Link>
             </li>
             <li className="py-2 pl-4">
               <div
@@ -222,12 +194,8 @@ function Navbar() {
                   setNav(!nav);
                 }}
               >
-                {!isLight && (
-                  <Image src={MOON} alt="MOON" className="py-[8px] w-10 h-10" />
-                )}
-                {isLight && (
-                  <Image src={SUN} alt="SUN" className="py-[8px] w-10 h-10" />
-                )}
+                {!isLight && <Image src={MOON} alt="MOON" className="py-[8px] w-10 h-10" />}
+                {isLight && <Image src={SUN} alt="SUN" className="py-[8px] w-10 h-10" />}
               </div>
             </li>
           </ul>
