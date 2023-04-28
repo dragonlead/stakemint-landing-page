@@ -122,24 +122,25 @@ function Navbar() {
               variants={fadeInToUp}
               initial="hidden"
               whileInView="visible"
-              className="px-4 py-1 ml-8 bg-green-400 rounded-md font-commonsDemiBold"
+              className="px-4 py-1 mx-8 bg-green-400 rounded-md font-commonsDemiBold"
               onClick={signIn}
             >
               Sign In/Sign Up
             </motion.button>
-          ) : null}
-          <Link href="https://app-stakemint.netlify.com" passHref legacyBehavior>
-            <a target="_blank" rel="noopener noreferrer">
-              <motion.button
-                variants={fadeInToUp}
-                initial="hidden"
-                whileInView="visible"
-                className="px-4 py-1 mx-2 bg-green-400 rounded-md font-commonsDemiBold"
-              >
-                LAUNCH APP
-              </motion.button>
-            </a>
-          </Link>
+          ) : (
+            <Link href="https://app-stakemint.netlify.com" passHref legacyBehavior>
+              <a target="_blank" rel="noopener noreferrer">
+                <motion.button
+                  variants={fadeInToUp}
+                  initial="hidden"
+                  whileInView="visible"
+                  className="px-4 py-1 mx-2 bg-green-400 rounded-md font-commonsDemiBold"
+                >
+                  LAUNCH APP
+                </motion.button>
+              </a>
+            </Link>
+          )}
           <motion.div
             variants={fadeInToUp}
             initial="hidden"
@@ -178,14 +179,15 @@ function Navbar() {
                   Sign In/Sign Up
                 </button>
               </li>
-            ) : null}
-            <li className="px-4 pb-4 active:bg-gray-100 hover:cursor-pointer" onClick={handleNav}>
-              <Link href="https://app-stakemint.netlify.com" passHref legacyBehavior>
-                <a target="_blank" rel="noopener noreferrer">
-                  <button className="px-4 py-1 bg-green-400 rounded-md font-commonsDemiBold">LAUNCH APP</button>
-                </a>
-              </Link>
-            </li>
+            ) : (
+              <li className="px-4 pb-4 active:bg-gray-100 hover:cursor-pointer" onClick={handleNav}>
+                <Link href="https://app-stakemint.netlify.com" passHref legacyBehavior>
+                  <a target="_blank" rel="noopener noreferrer">
+                    <button className="px-4 py-1 bg-green-400 rounded-md font-commonsDemiBold">LAUNCH APP</button>
+                  </a>
+                </Link>
+              </li>
+            )}
             <li className="py-2 pl-4">
               <div
                 className="relative flex text-white rounded-md bg-slate-200 dark:bg-gray-800 w-fit hover:cursor-pointer"
