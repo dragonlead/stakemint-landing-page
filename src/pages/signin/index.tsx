@@ -59,9 +59,13 @@ export default function SignIn() {
           </div>
           <p className="font-commonsRegular text-3xl text-center pt-[8px] mt-6 lg:mt-0">Welcome</p>
           <p className="font-commonsRegular text-lg text-center pt-[5px] lg:-my-[6px]">
-            Please sign-in to continue to Stakemint
+            Please{" "}
+            <Link href={"/signup"} passHref className="hover:underline decoration-1">
+              sign-up
+            </Link>
+            , if you are new to Stakemint.
           </p>
-          <div className="mt-6 font-commonsRegular lg:mt-0">
+          <div className="mt-6 mx-auto font-commonsRegular lg:mt-0">
             <form onSubmit={formik.handleSubmit}>
               <div className="relative flex flex-col">
                 <input
